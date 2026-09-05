@@ -5,11 +5,11 @@
 **Flow:** `url_retrieval` → `html_retrieval` → `html_parser` → `geospatial`
 
 | Module | Owner |
-|---|---|---|---|
-| `url_retrieval.py` | placeholder |
-| `html_retrieval.py` | placeholder |
-| `html_parser.py` | placeholder |
-| `geospatial.py` | placeholder |
+|---|---|
+| `url_retrieval.py` | |
+| `html_retrieval.py` | |
+| `html_parser.py` | |
+| `geospatial.py` | |
 
 ### `url_retrieval.py`
 
