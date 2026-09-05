@@ -6,10 +6,10 @@
 
 | Module | Owner |
 |---|---|
-| `url_retrieval.py` | |
-| `html_retrieval.py` | |
-| `html_parser.py` | |
-| `geospatial.py` | |
+| `url_retrieval.py` | Sean |
+| `html_retrieval.py` | Aydin |
+| `html_parser.py` | Aditya |
+| `geospatial.py` | Ben |
 
 ### `url_retrieval.py`
 
