@@ -194,7 +194,8 @@ class WebScraper:
             try:
                 # Validate URL
                 if not url.startswith(('http://', 'https://')):
-                    logger.warning(f"Invalid URL format: {url}")
+                    logger.error(f"INVALID: {url} - URL must start with http:// or https://")
+                    self.store_page(url, None, None, error_message="Invalid URL format")
                     failed += 1
                     continue
                 
@@ -206,6 +207,7 @@ class WebScraper:
                     self.store_page(url, html_content, status_code)
                     successful += 1
                 else:
+                    logger.error(f"FAILED: {url} - Could not retrieve content after retries")
                     self.store_page(url, None, None, error_message="Failed to fetch")
                     failed += 1
                 
