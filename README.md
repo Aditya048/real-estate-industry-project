@@ -14,7 +14,13 @@
 ### `url_retrieval.py`
 
 ### `html_retrieval.py`
-
+Contains code to take HTML code from every web page specified by a list of URLs.
+It is presented as a `WebScraper` class and handles rate limiting and general
+error handling. 
+**Packages required for this code to work**
+- `requests`
+- `urllib3`
+All other packages (like `sqlite3` and `logging`) are built into Python.
 ### `html_parser.py`
 
 ### `geospatial.py`
