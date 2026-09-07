@@ -1,0 +1,72 @@
+2026-09-07 12:52:27,008 - INFO - NumExpr defaulting to 10 threads.
+2026-09-07 12:53:49,635 - INFO - NumExpr defaulting to 10 threads.
+2026-09-07 12:53:50,221 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 12:53:50,221 - INFO - Starting to scrape 0 URLs
+2026-09-07 12:53:50,221 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 12:54:19,523 - INFO - NumExpr defaulting to 10 threads.
+2026-09-07 12:54:19,853 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 12:54:19,854 - INFO - Starting to scrape 0 URLs
+2026-09-07 12:54:19,854 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 12:55:04,642 - INFO - NumExpr defaulting to 10 threads.
+2026-09-07 12:55:04,978 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 12:55:04,978 - INFO - Starting to scrape 4 URLs
+2026-09-07 12:55:04,978 - INFO - Fetching: https://www.rent.com.au/property/1-1-beaton-pl-inverloch-vic-3996-6479415
+2026-09-07 12:55:05,283 - INFO - Successfully fetched https://www.rent.com.au/property/1-1-beaton-pl-inverloch-vic-3996-6479415 (Status: 200)
+2026-09-07 12:55:05,287 - INFO - Stored page: https://www.rent.com.au/property/1-1-beaton-pl-inverloch-vic-3996-6479415
+2026-09-07 12:55:05,287 - INFO - Progress: 1/4 (1 successful, 0 failed)
+2026-09-07 12:55:07,290 - INFO - Fetching: https://www.rent.com.au/property/2-28-30-reilly-st-inverloch-vic-3996-6476646
+2026-09-07 12:55:07,526 - INFO - Successfully fetched https://www.rent.com.au/property/2-28-30-reilly-st-inverloch-vic-3996-6476646 (Status: 200)
+2026-09-07 12:55:07,529 - INFO - Stored page: https://www.rent.com.au/property/2-28-30-reilly-st-inverloch-vic-3996-6476646
+2026-09-07 12:55:07,530 - INFO - Progress: 2/4 (2 successful, 0 failed)
+2026-09-07 12:55:09,530 - INFO - Fetching: https://www.rent.com.au/property/2-surf-pde-inverloch-vic-3996-6449922
+2026-09-07 12:55:11,803 - INFO - Successfully fetched https://www.rent.com.au/property/2-surf-pde-inverloch-vic-3996-6449922 (Status: 200)
+2026-09-07 12:55:11,807 - INFO - Stored page: https://www.rent.com.au/property/2-surf-pde-inverloch-vic-3996-6449922
+2026-09-07 12:55:11,807 - INFO - Progress: 3/4 (3 successful, 0 failed)
+2026-09-07 12:55:13,812 - INFO - Fetching: https://www.rent.com.au/property/5-14-16-hopetoun-st-inverloch-vic-3996-6429326
+2026-09-07 12:55:14,056 - INFO - Successfully fetched https://www.rent.com.au/property/5-14-16-hopetoun-st-inverloch-vic-3996-6429326 (Status: 200)
+2026-09-07 12:55:14,060 - INFO - Stored page: https://www.rent.com.au/property/5-14-16-hopetoun-st-inverloch-vic-3996-6429326
+2026-09-07 12:55:14,060 - INFO - Progress: 4/4 (4 successful, 0 failed)
+2026-09-07 12:55:14,060 - INFO - Scraping complete. Successful: 4, Failed: 0
+2026-09-07 13:13:15,682 - INFO - NumExpr defaulting to 10 threads.
+2026-09-07 13:13:15,882 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-07 13:13:16,185 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:13:16,186 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:13:16,186 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:13:18,407 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:13:18,407 - INFO - Starting to scrape 28 URLs
+2026-09-07 13:13:18,407 - INFO - Fetching: https://www.rent.com.au/property/e501-11-flockhart-st-abbotsford-vic-3067-6452323
+2026-09-07 13:13:18,693 - INFO - Successfully fetched https://www.rent.com.au/property/e501-11-flockhart-st-abbotsford-vic-3067-6452323 (Status: 200)
+2026-09-07 13:13:18,695 - INFO - Stored page: https://www.rent.com.au/property/e501-11-flockhart-st-abbotsford-vic-3067-6452323
+2026-09-07 13:13:18,695 - INFO - Progress: 1/28 (1 successful, 0 failed)
+2026-09-07 13:13:20,700 - INFO - Fetching: https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309
+2026-09-07 13:13:20,984 - INFO - Successfully fetched https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309 (Status: 200)
+2026-09-07 13:13:20,989 - INFO - Stored page: https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309
+2026-09-07 13:13:20,989 - INFO - Progress: 2/28 (2 successful, 0 failed)
+2026-09-07 13:13:22,993 - INFO - Fetching: https://www.rent.com.au/property/b501-8-grosvenor-st-abbotsford-vic-3067-6479898
+2026-09-07 13:13:23,271 - INFO - Successfully fetched https://www.rent.com.au/property/b501-8-grosvenor-st-abbotsford-vic-3067-6479898 (Status: 200)
+2026-09-07 13:13:23,273 - INFO - Stored page: https://www.rent.com.au/property/b501-8-grosvenor-st-abbotsford-vic-3067-6479898
+2026-09-07 13:13:23,273 - INFO - Progress: 3/28 (3 successful, 0 failed)
+2026-09-07 13:13:25,278 - INFO - Fetching: https://www.rent.com.au/property/d106-18-grosvenor-st-abbotsford-vic-3067-5127506
+2026-09-07 13:13:25,532 - INFO - Successfully fetched https://www.rent.com.au/property/d106-18-grosvenor-st-abbotsford-vic-3067-5127506 (Status: 200)
+2026-09-07 13:13:25,534 - INFO - Stored page: https://www.rent.com.au/property/d106-18-grosvenor-st-abbotsford-vic-3067-5127506
+2026-09-07 13:13:25,534 - INFO - Progress: 4/28 (4 successful, 0 failed)
+2026-09-07 13:13:27,539 - INFO - Fetching: https://www.rent.com.au/property/3-5-7-princes-st-abbotsford-vic-3067-6477989
+2026-09-07 13:13:27,779 - INFO - Successfully fetched https://www.rent.com.au/property/3-5-7-princes-st-abbotsford-vic-3067-6477989 (Status: 200)
+2026-09-07 13:13:27,783 - INFO - Stored page: https://www.rent.com.au/property/3-5-7-princes-st-abbotsford-vic-3067-6477989
+2026-09-07 13:13:27,784 - INFO - Progress: 5/28 (5 successful, 0 failed)
+2026-09-07 13:13:29,789 - INFO - Fetching: https://www.rent.com.au/property/514-631-victoria-st-abbotsford-vic-3067-5758465
+2026-09-07 13:13:30,052 - INFO - Successfully fetched https://www.rent.com.au/property/514-631-victoria-st-abbotsford-vic-3067-5758465 (Status: 200)
+2026-09-07 13:13:30,056 - INFO - Stored page: https://www.rent.com.au/property/514-631-victoria-st-abbotsford-vic-3067-5758465
+2026-09-07 13:13:30,057 - INFO - Progress: 6/28 (6 successful, 0 failed)
+2026-09-07 13:13:32,062 - INFO - Fetching: https://www.rent.com.au/property/712-20-shamrock-st-abbotsford-vic-3067-6474153
+2026-09-07 13:13:32,317 - INFO - Successfully fetched https://www.rent.com.au/property/712-20-shamrock-st-abbotsford-vic-3067-6474153 (Status: 200)
+2026-09-07 13:13:32,322 - INFO - Stored page: https://www.rent.com.au/property/712-20-shamrock-st-abbotsford-vic-3067-6474153
+2026-09-07 13:13:32,323 - INFO - Progress: 7/28 (7 successful, 0 failed)
+2026-09-07 13:13:34,328 - INFO - Fetching: https://www.rent.com.au/property/93-yarra-st-abbotsford-vic-3067-6473822
+2026-09-07 13:13:34,648 - INFO - Successfully fetched https://www.rent.com.au/property/93-yarra-st-abbotsford-vic-3067-6473822 (Status: 200)
+2026-09-07 13:13:34,650 - INFO - Stored page: https://www.rent.com.au/property/93-yarra-st-abbotsford-vic-3067-6473822
+2026-09-07 13:13:34,651 - INFO - Progress: 8/28 (8 successful, 0 failed)
+2026-09-07 13:13:36,656 - INFO - Fetching: https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207
+2026-09-07 13:13:36,909 - INFO - Successfully fetched https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207 (Status: 200)
+2026-09-07 13:13:36,912 - INFO - Stored page: https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207
+2026-09-07 13:13:36,912 - INFO - Progress: 9/28 (9 successful, 0 failed)
