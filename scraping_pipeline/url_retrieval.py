@@ -39,6 +39,13 @@ BASE_URL = "https://www.rent.com.au"
 REQUEST_DELAY_SECONDS = 1.5  # be polite - don't hammer their servers
 RESULTS_PER_PAGE = 25  # observed on the site; used as a fallback
 
+HEADERS = {
+    # Identify the bot honestly - good practice per rent.com.au's own
+    # "fair use" style expectations for automated tools.
+    "User-Agent": "Mozilla/5.0 (compatible; MelbRentalResearchBot/1.0; "
+                  "Uni data science project; contact: sjalfred@student.unimelb.edu.au)"
+}
+
 # Fallback regex, only used if BeautifulSoup finds no <a> tags matching -
 # in case listing paths are embedded in a JSON blob rather than a plain
 # anchor tag. Matches e.g. /property/1006-135-abeckett-st-melbourne-6477270
@@ -69,7 +76,7 @@ class SuburbQuery:
 
 
 def _fetch(url: str) -> str:
-    resp = requests.get(url, timeout=15)
+    resp = requests.get(url, headers=HEADERS, timeout=15)
     resp.raise_for_status()
     return resp.text
 
