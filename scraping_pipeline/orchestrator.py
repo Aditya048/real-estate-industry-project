@@ -8,6 +8,7 @@ import logging
 from datetime import datetime
 from typing import Optional
 
+import requests
 import pandas as pd
 
 # get a list of all the postcodes
@@ -155,7 +156,11 @@ for row in postcodes.iloc:
     postcode = row["Postcode"]
 
     # get the list of urls
-    urls = get_listing_urls(suburb, postcode)
+    try:
+        urls = get_listing_urls(suburb, postcode)
+    except requests.exceptions.HTTPError:
+        print(f"Skipping {suburb}, {postcode} due to HTTPError")
+        continue
 
     # set up the scraper and a database
     scraper = WebScraper(db_path=DB_PATH)

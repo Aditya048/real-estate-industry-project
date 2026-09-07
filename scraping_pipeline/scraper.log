@@ -70,3 +70,535 @@
 2026-09-07 13:13:36,909 - INFO - Successfully fetched https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207 (Status: 200)
 2026-09-07 13:13:36,912 - INFO - Stored page: https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207
 2026-09-07 13:13:36,912 - INFO - Progress: 9/28 (9 successful, 0 failed)
+2026-09-07 13:13:38,917 - INFO - Fetching: https://www.rent.com.au/property/105b-609-victoria-st-abbotsford-vic-3067-6472889
+2026-09-07 13:13:39,158 - INFO - Successfully fetched https://www.rent.com.au/property/105b-609-victoria-st-abbotsford-vic-3067-6472889 (Status: 200)
+2026-09-07 13:13:39,159 - INFO - Stored page: https://www.rent.com.au/property/105b-609-victoria-st-abbotsford-vic-3067-6472889
+2026-09-07 13:13:39,160 - INFO - Progress: 10/28 (10 successful, 0 failed)
+2026-09-07 13:13:41,165 - INFO - Fetching: https://www.rent.com.au/property/12-43-nicholson-st-abbotsford-vic-3067-5932637
+2026-09-07 13:13:41,423 - INFO - Successfully fetched https://www.rent.com.au/property/12-43-nicholson-st-abbotsford-vic-3067-5932637 (Status: 200)
+2026-09-07 13:13:41,427 - INFO - Stored page: https://www.rent.com.au/property/12-43-nicholson-st-abbotsford-vic-3067-5932637
+2026-09-07 13:13:41,427 - INFO - Progress: 11/28 (11 successful, 0 failed)
+2026-09-07 13:13:43,430 - INFO - Fetching: https://www.rent.com.au/property/202-112-120-vere-st-abbotsford-vic-3067-6465492
+2026-09-07 13:13:43,685 - INFO - Successfully fetched https://www.rent.com.au/property/202-112-120-vere-st-abbotsford-vic-3067-6465492 (Status: 200)
+2026-09-07 13:13:43,688 - INFO - Stored page: https://www.rent.com.au/property/202-112-120-vere-st-abbotsford-vic-3067-6465492
+2026-09-07 13:13:43,688 - INFO - Progress: 12/28 (12 successful, 0 failed)
+2026-09-07 13:13:45,691 - INFO - Fetching: https://www.rent.com.au/property/1-611-victoria-st-abbotsford-vic-3067-6464065
+2026-09-07 13:13:45,959 - INFO - Successfully fetched https://www.rent.com.au/property/1-611-victoria-st-abbotsford-vic-3067-6464065 (Status: 200)
+2026-09-07 13:13:45,961 - INFO - Stored page: https://www.rent.com.au/property/1-611-victoria-st-abbotsford-vic-3067-6464065
+2026-09-07 13:13:45,962 - INFO - Progress: 13/28 (13 successful, 0 failed)
+2026-09-07 13:13:47,967 - INFO - Fetching: https://www.rent.com.au/property/11-42-nicholson-st-abbotsford-vic-3067-6463841
+2026-09-07 13:13:48,226 - INFO - Successfully fetched https://www.rent.com.au/property/11-42-nicholson-st-abbotsford-vic-3067-6463841 (Status: 200)
+2026-09-07 13:13:48,231 - INFO - Stored page: https://www.rent.com.au/property/11-42-nicholson-st-abbotsford-vic-3067-6463841
+2026-09-07 13:13:48,231 - INFO - Progress: 14/28 (14 successful, 0 failed)
+2026-09-07 13:13:50,236 - INFO - Fetching: https://www.rent.com.au/property/110-125-turner-st-abbotsford-vic-3067-6092954
+2026-09-07 13:13:50,482 - INFO - Successfully fetched https://www.rent.com.au/property/110-125-turner-st-abbotsford-vic-3067-6092954 (Status: 200)
+2026-09-07 13:13:50,484 - INFO - Stored page: https://www.rent.com.au/property/110-125-turner-st-abbotsford-vic-3067-6092954
+2026-09-07 13:13:50,485 - INFO - Progress: 15/28 (15 successful, 0 failed)
+2026-09-07 13:13:52,485 - INFO - Fetching: https://www.rent.com.au/property/9-28-nicholson-st-abbotsford-vic-3067-6463242
+2026-09-07 13:13:52,766 - INFO - Successfully fetched https://www.rent.com.au/property/9-28-nicholson-st-abbotsford-vic-3067-6463242 (Status: 200)
+2026-09-07 13:13:52,768 - INFO - Stored page: https://www.rent.com.au/property/9-28-nicholson-st-abbotsford-vic-3067-6463242
+2026-09-07 13:13:52,768 - INFO - Progress: 16/28 (16 successful, 0 failed)
+2026-09-07 13:13:54,773 - INFO - Fetching: https://www.rent.com.au/property/304-14-trenerry-cres-abbotsford-vic-3067-6462665
+2026-09-07 13:13:55,030 - INFO - Successfully fetched https://www.rent.com.au/property/304-14-trenerry-cres-abbotsford-vic-3067-6462665 (Status: 200)
+2026-09-07 13:13:55,032 - INFO - Stored page: https://www.rent.com.au/property/304-14-trenerry-cres-abbotsford-vic-3067-6462665
+2026-09-07 13:13:55,032 - INFO - Progress: 17/28 (17 successful, 0 failed)
+2026-09-07 13:13:57,033 - INFO - Fetching: https://www.rent.com.au/property/212-119-turner-st-abbotsford-vic-3067-6458434
+2026-09-07 13:13:57,309 - INFO - Successfully fetched https://www.rent.com.au/property/212-119-turner-st-abbotsford-vic-3067-6458434 (Status: 200)
+2026-09-07 13:13:57,312 - INFO - Stored page: https://www.rent.com.au/property/212-119-turner-st-abbotsford-vic-3067-6458434
+2026-09-07 13:13:57,312 - INFO - Progress: 18/28 (18 successful, 0 failed)
+2026-09-07 13:13:59,317 - INFO - Fetching: https://www.rent.com.au/property/d913-609-victoria-st-abbotsford-vic-3067-6458164
+2026-09-07 13:13:59,603 - INFO - Successfully fetched https://www.rent.com.au/property/d913-609-victoria-st-abbotsford-vic-3067-6458164 (Status: 200)
+2026-09-07 13:13:59,611 - INFO - Stored page: https://www.rent.com.au/property/d913-609-victoria-st-abbotsford-vic-3067-6458164
+2026-09-07 13:13:59,611 - INFO - Progress: 19/28 (19 successful, 0 failed)
+2026-09-07 13:14:01,615 - INFO - Fetching: https://www.rent.com.au/property/e108-11-flockhart-st-abbotsford-vic-3067-6458095
+2026-09-07 13:14:01,937 - INFO - Successfully fetched https://www.rent.com.au/property/e108-11-flockhart-st-abbotsford-vic-3067-6458095 (Status: 200)
+2026-09-07 13:14:01,941 - INFO - Stored page: https://www.rent.com.au/property/e108-11-flockhart-st-abbotsford-vic-3067-6458095
+2026-09-07 13:14:01,941 - INFO - Progress: 20/28 (20 successful, 0 failed)
+2026-09-07 13:14:03,945 - INFO - Fetching: https://www.rent.com.au/property/elg17-11-flockhart-st-abbotsford-vic-3067-6127187
+2026-09-07 13:14:04,216 - INFO - Successfully fetched https://www.rent.com.au/property/elg17-11-flockhart-st-abbotsford-vic-3067-6127187 (Status: 200)
+2026-09-07 13:14:04,220 - INFO - Stored page: https://www.rent.com.au/property/elg17-11-flockhart-st-abbotsford-vic-3067-6127187
+2026-09-07 13:14:04,220 - INFO - Progress: 21/28 (21 successful, 0 failed)
+2026-09-07 13:14:06,225 - INFO - Fetching: https://www.rent.com.au/property/9-43-nicholson-st-abbotsford-vic-3067-4512956
+2026-09-07 13:14:06,499 - INFO - Successfully fetched https://www.rent.com.au/property/9-43-nicholson-st-abbotsford-vic-3067-4512956 (Status: 200)
+2026-09-07 13:14:06,503 - INFO - Stored page: https://www.rent.com.au/property/9-43-nicholson-st-abbotsford-vic-3067-4512956
+2026-09-07 13:14:06,503 - INFO - Progress: 22/28 (22 successful, 0 failed)
+2026-09-07 13:14:08,509 - INFO - Fetching: https://www.rent.com.au/property/hg04-12-trenerry-cres-abbotsford-vic-3067-6451015
+2026-09-07 13:14:08,815 - INFO - Successfully fetched https://www.rent.com.au/property/hg04-12-trenerry-cres-abbotsford-vic-3067-6451015 (Status: 200)
+2026-09-07 13:14:08,819 - INFO - Stored page: https://www.rent.com.au/property/hg04-12-trenerry-cres-abbotsford-vic-3067-6451015
+2026-09-07 13:14:08,819 - INFO - Progress: 23/28 (23 successful, 0 failed)
+2026-09-07 13:14:10,820 - INFO - Fetching: https://www.rent.com.au/property/2-12-trenerry-cres-abbotsford-vic-3067-5607133
+2026-09-07 13:14:11,099 - INFO - Successfully fetched https://www.rent.com.au/property/2-12-trenerry-cres-abbotsford-vic-3067-5607133 (Status: 200)
+2026-09-07 13:14:11,103 - INFO - Stored page: https://www.rent.com.au/property/2-12-trenerry-cres-abbotsford-vic-3067-5607133
+2026-09-07 13:14:11,103 - INFO - Progress: 24/28 (24 successful, 0 failed)
+2026-09-07 13:14:13,106 - INFO - Fetching: https://www.rent.com.au/property/212-1-acacia-pl-abbotsford-vic-3067-6436750
+2026-09-07 13:14:13,385 - INFO - Successfully fetched https://www.rent.com.au/property/212-1-acacia-pl-abbotsford-vic-3067-6436750 (Status: 200)
+2026-09-07 13:14:13,389 - INFO - Stored page: https://www.rent.com.au/property/212-1-acacia-pl-abbotsford-vic-3067-6436750
+2026-09-07 13:14:13,389 - INFO - Progress: 25/28 (25 successful, 0 failed)
+2026-09-07 13:14:15,394 - INFO - Fetching: https://www.rent.com.au/property/18-fairchild-st-abbotsford-vic-3067-6427591
+2026-09-07 13:14:15,656 - INFO - Successfully fetched https://www.rent.com.au/property/18-fairchild-st-abbotsford-vic-3067-6427591 (Status: 200)
+2026-09-07 13:14:15,659 - INFO - Stored page: https://www.rent.com.au/property/18-fairchild-st-abbotsford-vic-3067-6427591
+2026-09-07 13:14:15,659 - INFO - Progress: 26/28 (26 successful, 0 failed)
+2026-09-07 13:14:17,663 - INFO - Fetching: https://www.rent.com.au/property/611-victoria-st-abbotsford-vic-3067-6383616
+2026-09-07 13:14:17,903 - INFO - Successfully fetched https://www.rent.com.au/property/611-victoria-st-abbotsford-vic-3067-6383616 (Status: 200)
+2026-09-07 13:14:17,905 - INFO - Stored page: https://www.rent.com.au/property/611-victoria-st-abbotsford-vic-3067-6383616
+2026-09-07 13:14:17,905 - INFO - Progress: 27/28 (27 successful, 0 failed)
+2026-09-07 13:14:19,910 - INFO - Fetching: https://www.rent.com.au/property/310b-11-flockhart-st-abbotsford-vic-3067-5917291
+2026-09-07 13:14:20,187 - INFO - Successfully fetched https://www.rent.com.au/property/310b-11-flockhart-st-abbotsford-vic-3067-5917291 (Status: 200)
+2026-09-07 13:14:20,191 - INFO - Stored page: https://www.rent.com.au/property/310b-11-flockhart-st-abbotsford-vic-3067-5917291
+2026-09-07 13:14:20,191 - INFO - Progress: 28/28 (28 successful, 0 failed)
+2026-09-07 13:14:20,191 - INFO - Scraping complete. Successful: 28, Failed: 0
+2026-09-07 13:14:20,237 - INFO - Stored property details: 6452323
+2026-09-07 13:14:20,282 - INFO - Stored property details: 6480309
+2026-09-07 13:14:20,298 - INFO - Stored property details: 6479898
+2026-09-07 13:14:20,316 - INFO - Stored property details: 5127506
+2026-09-07 13:14:20,332 - INFO - Stored property details: 6477989
+2026-09-07 13:14:20,349 - INFO - Stored property details: 5758465
+2026-09-07 13:14:20,365 - INFO - Stored property details: 6474153
+2026-09-07 13:14:20,381 - INFO - Stored property details: 6473822
+2026-09-07 13:14:20,395 - INFO - Stored property details: 4356207
+2026-09-07 13:14:20,410 - INFO - Stored property details: 6472889
+2026-09-07 13:14:20,428 - INFO - Stored property details: 5932637
+2026-09-07 13:14:20,443 - INFO - Stored property details: 6465492
+2026-09-07 13:14:20,460 - INFO - Stored property details: 6464065
+2026-09-07 13:14:20,478 - INFO - Stored property details: 6463841
+2026-09-07 13:14:20,494 - INFO - Stored property details: 6092954
+2026-09-07 13:14:20,510 - INFO - Stored property details: 6463242
+2026-09-07 13:14:20,530 - INFO - Stored property details: 6462665
+2026-09-07 13:14:20,549 - INFO - Stored property details: 6458434
+2026-09-07 13:14:20,580 - INFO - Stored property details: 6458164
+2026-09-07 13:14:20,596 - INFO - Stored property details: 6458095
+2026-09-07 13:14:20,616 - INFO - Stored property details: 6127187
+2026-09-07 13:14:20,637 - INFO - Stored property details: 4512956
+2026-09-07 13:14:20,666 - INFO - Stored property details: 6451015
+2026-09-07 13:14:20,681 - INFO - Stored property details: 5607133
+2026-09-07 13:14:20,698 - INFO - Stored property details: 6436750
+2026-09-07 13:14:20,712 - INFO - Stored property details: 6427591
+2026-09-07 13:14:20,729 - INFO - Stored property details: 6383616
+2026-09-07 13:14:20,744 - INFO - Stored property details: 5917291
+2026-09-07 13:18:47,284 - INFO - NumExpr defaulting to 10 threads.
+2026-09-07 13:18:47,489 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-07 13:18:47,622 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:18:47,622 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:18:47,622 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:18:49,475 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:18:49,475 - INFO - Starting to scrape 28 URLs
+2026-09-07 13:18:49,475 - INFO - Fetching: https://www.rent.com.au/property/e501-11-flockhart-st-abbotsford-vic-3067-6452323
+2026-09-07 13:18:49,749 - INFO - Successfully fetched https://www.rent.com.au/property/e501-11-flockhart-st-abbotsford-vic-3067-6452323 (Status: 200)
+2026-09-07 13:18:49,757 - INFO - Stored page: https://www.rent.com.au/property/e501-11-flockhart-st-abbotsford-vic-3067-6452323
+2026-09-07 13:18:49,757 - INFO - Progress: 1/28 (1 successful, 0 failed)
+2026-09-07 13:18:51,758 - INFO - Fetching: https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309
+2026-09-07 13:18:52,003 - INFO - Successfully fetched https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309 (Status: 200)
+2026-09-07 13:18:52,009 - INFO - Stored page: https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309
+2026-09-07 13:18:52,010 - INFO - Progress: 2/28 (2 successful, 0 failed)
+2026-09-07 13:18:54,013 - INFO - Fetching: https://www.rent.com.au/property/b501-8-grosvenor-st-abbotsford-vic-3067-6479898
+2026-09-07 13:18:54,258 - INFO - Successfully fetched https://www.rent.com.au/property/b501-8-grosvenor-st-abbotsford-vic-3067-6479898 (Status: 200)
+2026-09-07 13:18:54,262 - INFO - Stored page: https://www.rent.com.au/property/b501-8-grosvenor-st-abbotsford-vic-3067-6479898
+2026-09-07 13:18:54,262 - INFO - Progress: 3/28 (3 successful, 0 failed)
+2026-09-07 13:18:56,268 - INFO - Fetching: https://www.rent.com.au/property/d106-18-grosvenor-st-abbotsford-vic-3067-5127506
+2026-09-07 13:18:56,539 - INFO - Successfully fetched https://www.rent.com.au/property/d106-18-grosvenor-st-abbotsford-vic-3067-5127506 (Status: 200)
+2026-09-07 13:18:56,544 - INFO - Stored page: https://www.rent.com.au/property/d106-18-grosvenor-st-abbotsford-vic-3067-5127506
+2026-09-07 13:18:56,545 - INFO - Progress: 4/28 (4 successful, 0 failed)
+2026-09-07 13:18:58,547 - INFO - Fetching: https://www.rent.com.au/property/3-5-7-princes-st-abbotsford-vic-3067-6477989
+2026-09-07 13:18:58,872 - INFO - Successfully fetched https://www.rent.com.au/property/3-5-7-princes-st-abbotsford-vic-3067-6477989 (Status: 200)
+2026-09-07 13:18:58,878 - INFO - Stored page: https://www.rent.com.au/property/3-5-7-princes-st-abbotsford-vic-3067-6477989
+2026-09-07 13:18:58,878 - INFO - Progress: 5/28 (5 successful, 0 failed)
+2026-09-07 13:19:00,883 - INFO - Fetching: https://www.rent.com.au/property/514-631-victoria-st-abbotsford-vic-3067-5758465
+2026-09-07 13:19:01,222 - INFO - Successfully fetched https://www.rent.com.au/property/514-631-victoria-st-abbotsford-vic-3067-5758465 (Status: 200)
+2026-09-07 13:19:01,228 - INFO - Stored page: https://www.rent.com.au/property/514-631-victoria-st-abbotsford-vic-3067-5758465
+2026-09-07 13:19:01,229 - INFO - Progress: 6/28 (6 successful, 0 failed)
+2026-09-07 13:19:03,229 - INFO - Fetching: https://www.rent.com.au/property/712-20-shamrock-st-abbotsford-vic-3067-6474153
+2026-09-07 13:19:03,566 - INFO - Successfully fetched https://www.rent.com.au/property/712-20-shamrock-st-abbotsford-vic-3067-6474153 (Status: 200)
+2026-09-07 13:19:03,572 - INFO - Stored page: https://www.rent.com.au/property/712-20-shamrock-st-abbotsford-vic-3067-6474153
+2026-09-07 13:19:03,572 - INFO - Progress: 7/28 (7 successful, 0 failed)
+2026-09-07 13:19:05,575 - INFO - Fetching: https://www.rent.com.au/property/93-yarra-st-abbotsford-vic-3067-6473822
+2026-09-07 13:19:05,884 - INFO - Successfully fetched https://www.rent.com.au/property/93-yarra-st-abbotsford-vic-3067-6473822 (Status: 200)
+2026-09-07 13:19:05,889 - INFO - Stored page: https://www.rent.com.au/property/93-yarra-st-abbotsford-vic-3067-6473822
+2026-09-07 13:19:05,889 - INFO - Progress: 8/28 (8 successful, 0 failed)
+2026-09-07 13:19:07,891 - INFO - Fetching: https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207
+2026-09-07 13:19:08,190 - INFO - Successfully fetched https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207 (Status: 200)
+2026-09-07 13:19:08,198 - INFO - Stored page: https://www.rent.com.au/property/b303-609-victoria-st-abbotsford-vic-3067-4356207
+2026-09-07 13:19:08,198 - INFO - Progress: 9/28 (9 successful, 0 failed)
+2026-09-07 13:19:10,203 - INFO - Fetching: https://www.rent.com.au/property/105b-609-victoria-st-abbotsford-vic-3067-6472889
+2026-09-07 13:19:10,462 - INFO - Successfully fetched https://www.rent.com.au/property/105b-609-victoria-st-abbotsford-vic-3067-6472889 (Status: 200)
+2026-09-07 13:19:10,470 - INFO - Stored page: https://www.rent.com.au/property/105b-609-victoria-st-abbotsford-vic-3067-6472889
+2026-09-07 13:19:10,470 - INFO - Progress: 10/28 (10 successful, 0 failed)
+2026-09-07 13:19:12,475 - INFO - Fetching: https://www.rent.com.au/property/12-43-nicholson-st-abbotsford-vic-3067-5932637
+2026-09-07 13:19:12,755 - INFO - Successfully fetched https://www.rent.com.au/property/12-43-nicholson-st-abbotsford-vic-3067-5932637 (Status: 200)
+2026-09-07 13:19:12,762 - INFO - Stored page: https://www.rent.com.au/property/12-43-nicholson-st-abbotsford-vic-3067-5932637
+2026-09-07 13:19:12,762 - INFO - Progress: 11/28 (11 successful, 0 failed)
+2026-09-07 13:19:14,767 - INFO - Fetching: https://www.rent.com.au/property/202-112-120-vere-st-abbotsford-vic-3067-6465492
+2026-09-07 13:19:15,004 - INFO - Successfully fetched https://www.rent.com.au/property/202-112-120-vere-st-abbotsford-vic-3067-6465492 (Status: 200)
+2026-09-07 13:19:15,011 - INFO - Stored page: https://www.rent.com.au/property/202-112-120-vere-st-abbotsford-vic-3067-6465492
+2026-09-07 13:19:15,011 - INFO - Progress: 12/28 (12 successful, 0 failed)
+2026-09-07 13:19:17,016 - INFO - Fetching: https://www.rent.com.au/property/1-611-victoria-st-abbotsford-vic-3067-6464065
+2026-09-07 13:19:17,300 - INFO - Successfully fetched https://www.rent.com.au/property/1-611-victoria-st-abbotsford-vic-3067-6464065 (Status: 200)
+2026-09-07 13:19:17,304 - INFO - Stored page: https://www.rent.com.au/property/1-611-victoria-st-abbotsford-vic-3067-6464065
+2026-09-07 13:19:17,305 - INFO - Progress: 13/28 (13 successful, 0 failed)
+2026-09-07 13:19:19,310 - INFO - Fetching: https://www.rent.com.au/property/11-42-nicholson-st-abbotsford-vic-3067-6463841
+2026-09-07 13:19:19,565 - INFO - Successfully fetched https://www.rent.com.au/property/11-42-nicholson-st-abbotsford-vic-3067-6463841 (Status: 200)
+2026-09-07 13:19:19,571 - INFO - Stored page: https://www.rent.com.au/property/11-42-nicholson-st-abbotsford-vic-3067-6463841
+2026-09-07 13:19:19,571 - INFO - Progress: 14/28 (14 successful, 0 failed)
+2026-09-07 13:19:21,577 - INFO - Fetching: https://www.rent.com.au/property/110-125-turner-st-abbotsford-vic-3067-6092954
+2026-09-07 13:19:21,855 - INFO - Successfully fetched https://www.rent.com.au/property/110-125-turner-st-abbotsford-vic-3067-6092954 (Status: 200)
+2026-09-07 13:19:21,862 - INFO - Stored page: https://www.rent.com.au/property/110-125-turner-st-abbotsford-vic-3067-6092954
+2026-09-07 13:19:21,862 - INFO - Progress: 15/28 (15 successful, 0 failed)
+2026-09-07 13:19:23,867 - INFO - Fetching: https://www.rent.com.au/property/9-28-nicholson-st-abbotsford-vic-3067-6463242
+2026-09-07 13:19:24,116 - INFO - Successfully fetched https://www.rent.com.au/property/9-28-nicholson-st-abbotsford-vic-3067-6463242 (Status: 200)
+2026-09-07 13:19:24,120 - INFO - Stored page: https://www.rent.com.au/property/9-28-nicholson-st-abbotsford-vic-3067-6463242
+2026-09-07 13:19:24,120 - INFO - Progress: 16/28 (16 successful, 0 failed)
+2026-09-07 13:19:26,126 - INFO - Fetching: https://www.rent.com.au/property/304-14-trenerry-cres-abbotsford-vic-3067-6462665
+2026-09-07 13:19:26,364 - INFO - Successfully fetched https://www.rent.com.au/property/304-14-trenerry-cres-abbotsford-vic-3067-6462665 (Status: 200)
+2026-09-07 13:19:26,370 - INFO - Stored page: https://www.rent.com.au/property/304-14-trenerry-cres-abbotsford-vic-3067-6462665
+2026-09-07 13:19:26,371 - INFO - Progress: 17/28 (17 successful, 0 failed)
+2026-09-07 13:19:28,375 - INFO - Fetching: https://www.rent.com.au/property/212-119-turner-st-abbotsford-vic-3067-6458434
+2026-09-07 13:19:28,692 - INFO - Successfully fetched https://www.rent.com.au/property/212-119-turner-st-abbotsford-vic-3067-6458434 (Status: 200)
+2026-09-07 13:19:28,698 - INFO - Stored page: https://www.rent.com.au/property/212-119-turner-st-abbotsford-vic-3067-6458434
+2026-09-07 13:19:28,698 - INFO - Progress: 18/28 (18 successful, 0 failed)
+2026-09-07 13:19:30,700 - INFO - Fetching: https://www.rent.com.au/property/d913-609-victoria-st-abbotsford-vic-3067-6458164
+2026-09-07 13:19:31,023 - INFO - Successfully fetched https://www.rent.com.au/property/d913-609-victoria-st-abbotsford-vic-3067-6458164 (Status: 200)
+2026-09-07 13:19:31,027 - INFO - Stored page: https://www.rent.com.au/property/d913-609-victoria-st-abbotsford-vic-3067-6458164
+2026-09-07 13:19:31,028 - INFO - Progress: 19/28 (19 successful, 0 failed)
+2026-09-07 13:19:33,033 - INFO - Fetching: https://www.rent.com.au/property/e108-11-flockhart-st-abbotsford-vic-3067-6458095
+2026-09-07 13:19:33,381 - INFO - Successfully fetched https://www.rent.com.au/property/e108-11-flockhart-st-abbotsford-vic-3067-6458095 (Status: 200)
+2026-09-07 13:19:33,389 - INFO - Stored page: https://www.rent.com.au/property/e108-11-flockhart-st-abbotsford-vic-3067-6458095
+2026-09-07 13:19:33,389 - INFO - Progress: 20/28 (20 successful, 0 failed)
+2026-09-07 13:19:35,394 - INFO - Fetching: https://www.rent.com.au/property/elg17-11-flockhart-st-abbotsford-vic-3067-6127187
+2026-09-07 13:19:35,728 - INFO - Successfully fetched https://www.rent.com.au/property/elg17-11-flockhart-st-abbotsford-vic-3067-6127187 (Status: 200)
+2026-09-07 13:19:35,733 - INFO - Stored page: https://www.rent.com.au/property/elg17-11-flockhart-st-abbotsford-vic-3067-6127187
+2026-09-07 13:19:35,733 - INFO - Progress: 21/28 (21 successful, 0 failed)
+2026-09-07 13:19:37,734 - INFO - Fetching: https://www.rent.com.au/property/9-43-nicholson-st-abbotsford-vic-3067-4512956
+2026-09-07 13:19:38,050 - INFO - Successfully fetched https://www.rent.com.au/property/9-43-nicholson-st-abbotsford-vic-3067-4512956 (Status: 200)
+2026-09-07 13:19:38,055 - INFO - Stored page: https://www.rent.com.au/property/9-43-nicholson-st-abbotsford-vic-3067-4512956
+2026-09-07 13:19:38,055 - INFO - Progress: 22/28 (22 successful, 0 failed)
+2026-09-07 13:19:40,060 - INFO - Fetching: https://www.rent.com.au/property/hg04-12-trenerry-cres-abbotsford-vic-3067-6451015
+2026-09-07 13:19:40,342 - INFO - Successfully fetched https://www.rent.com.au/property/hg04-12-trenerry-cres-abbotsford-vic-3067-6451015 (Status: 200)
+2026-09-07 13:19:40,347 - INFO - Stored page: https://www.rent.com.au/property/hg04-12-trenerry-cres-abbotsford-vic-3067-6451015
+2026-09-07 13:19:40,347 - INFO - Progress: 23/28 (23 successful, 0 failed)
+2026-09-07 13:19:42,351 - INFO - Fetching: https://www.rent.com.au/property/2-12-trenerry-cres-abbotsford-vic-3067-5607133
+2026-09-07 13:19:42,620 - INFO - Successfully fetched https://www.rent.com.au/property/2-12-trenerry-cres-abbotsford-vic-3067-5607133 (Status: 200)
+2026-09-07 13:19:42,626 - INFO - Stored page: https://www.rent.com.au/property/2-12-trenerry-cres-abbotsford-vic-3067-5607133
+2026-09-07 13:19:42,626 - INFO - Progress: 24/28 (24 successful, 0 failed)
+2026-09-07 13:19:44,629 - INFO - Fetching: https://www.rent.com.au/property/212-1-acacia-pl-abbotsford-vic-3067-6436750
+2026-09-07 13:19:44,886 - INFO - Successfully fetched https://www.rent.com.au/property/212-1-acacia-pl-abbotsford-vic-3067-6436750 (Status: 200)
+2026-09-07 13:19:44,892 - INFO - Stored page: https://www.rent.com.au/property/212-1-acacia-pl-abbotsford-vic-3067-6436750
+2026-09-07 13:19:44,892 - INFO - Progress: 25/28 (25 successful, 0 failed)
+2026-09-07 13:19:46,897 - INFO - Fetching: https://www.rent.com.au/property/18-fairchild-st-abbotsford-vic-3067-6427591
+2026-09-07 13:19:47,144 - INFO - Successfully fetched https://www.rent.com.au/property/18-fairchild-st-abbotsford-vic-3067-6427591 (Status: 200)
+2026-09-07 13:19:47,150 - INFO - Stored page: https://www.rent.com.au/property/18-fairchild-st-abbotsford-vic-3067-6427591
+2026-09-07 13:19:47,150 - INFO - Progress: 26/28 (26 successful, 0 failed)
+2026-09-07 13:19:49,156 - INFO - Fetching: https://www.rent.com.au/property/611-victoria-st-abbotsford-vic-3067-6383616
+2026-09-07 13:19:49,458 - INFO - Successfully fetched https://www.rent.com.au/property/611-victoria-st-abbotsford-vic-3067-6383616 (Status: 200)
+2026-09-07 13:19:49,463 - INFO - Stored page: https://www.rent.com.au/property/611-victoria-st-abbotsford-vic-3067-6383616
+2026-09-07 13:19:49,463 - INFO - Progress: 27/28 (27 successful, 0 failed)
+2026-09-07 13:19:51,467 - INFO - Fetching: https://www.rent.com.au/property/310b-11-flockhart-st-abbotsford-vic-3067-5917291
+2026-09-07 13:19:51,801 - INFO - Successfully fetched https://www.rent.com.au/property/310b-11-flockhart-st-abbotsford-vic-3067-5917291 (Status: 200)
+2026-09-07 13:19:51,806 - INFO - Stored page: https://www.rent.com.au/property/310b-11-flockhart-st-abbotsford-vic-3067-5917291
+2026-09-07 13:19:51,807 - INFO - Progress: 28/28 (28 successful, 0 failed)
+2026-09-07 13:19:51,807 - INFO - Scraping complete. Successful: 28, Failed: 0
+2026-09-07 13:19:51,836 - INFO - Stored property details: 6452323
+2026-09-07 13:19:51,861 - INFO - Stored property details: 6480309
+2026-09-07 13:19:51,877 - INFO - Stored property details: 6479898
+2026-09-07 13:19:51,892 - INFO - Stored property details: 5127506
+2026-09-07 13:19:51,908 - INFO - Stored property details: 6477989
+2026-09-07 13:19:51,922 - INFO - Stored property details: 5758465
+2026-09-07 13:19:51,937 - INFO - Stored property details: 6474153
+2026-09-07 13:19:51,951 - INFO - Stored property details: 6473822
+2026-09-07 13:19:51,965 - INFO - Stored property details: 4356207
+2026-09-07 13:19:51,979 - INFO - Stored property details: 6472889
+2026-09-07 13:19:51,995 - INFO - Stored property details: 5932637
+2026-09-07 13:19:52,009 - INFO - Stored property details: 6465492
+2026-09-07 13:19:52,022 - INFO - Stored property details: 6464065
+2026-09-07 13:19:52,036 - INFO - Stored property details: 6463841
+2026-09-07 13:19:52,049 - INFO - Stored property details: 6092954
+2026-09-07 13:19:52,063 - INFO - Stored property details: 6463242
+2026-09-07 13:19:52,078 - INFO - Stored property details: 6462665
+2026-09-07 13:19:52,105 - INFO - Stored property details: 6458434
+2026-09-07 13:19:52,135 - INFO - Stored property details: 6458164
+2026-09-07 13:19:52,149 - INFO - Stored property details: 6458095
+2026-09-07 13:19:52,167 - INFO - Stored property details: 6127187
+2026-09-07 13:19:52,185 - INFO - Stored property details: 4512956
+2026-09-07 13:19:52,206 - INFO - Stored property details: 6451015
+2026-09-07 13:19:52,218 - INFO - Stored property details: 5607133
+2026-09-07 13:19:52,234 - INFO - Stored property details: 6436750
+2026-09-07 13:19:52,247 - INFO - Stored property details: 6427591
+2026-09-07 13:19:52,262 - INFO - Stored property details: 6383616
+2026-09-07 13:19:52,275 - INFO - Stored property details: 5917291
+2026-09-07 13:19:52,616 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:19:52,617 - INFO - Starting to scrape 4 URLs
+2026-09-07 13:19:52,617 - INFO - Fetching: https://www.rent.com.au/property/1-st-kinnord-st-aberfeldie-vic-3040-6476274
+2026-09-07 13:19:52,935 - INFO - Successfully fetched https://www.rent.com.au/property/1-st-kinnord-st-aberfeldie-vic-3040-6476274 (Status: 200)
+2026-09-07 13:19:52,939 - INFO - Stored page: https://www.rent.com.au/property/1-st-kinnord-st-aberfeldie-vic-3040-6476274
+2026-09-07 13:19:52,940 - INFO - Progress: 1/4 (1 successful, 0 failed)
+2026-09-07 13:19:54,945 - INFO - Fetching: https://www.rent.com.au/property/6a-tilba-st-aberfeldie-vic-3040-6469091
+2026-09-07 13:19:55,224 - INFO - Successfully fetched https://www.rent.com.au/property/6a-tilba-st-aberfeldie-vic-3040-6469091 (Status: 200)
+2026-09-07 13:19:55,228 - INFO - Stored page: https://www.rent.com.au/property/6a-tilba-st-aberfeldie-vic-3040-6469091
+2026-09-07 13:19:55,228 - INFO - Progress: 2/4 (2 successful, 0 failed)
+2026-09-07 13:19:57,233 - INFO - Fetching: https://www.rent.com.au/property/121-fawkner-st-aberfeldie-vic-3040-6449975
+2026-09-07 13:19:57,500 - INFO - Successfully fetched https://www.rent.com.au/property/121-fawkner-st-aberfeldie-vic-3040-6449975 (Status: 200)
+2026-09-07 13:19:57,503 - INFO - Stored page: https://www.rent.com.au/property/121-fawkner-st-aberfeldie-vic-3040-6449975
+2026-09-07 13:19:57,503 - INFO - Progress: 3/4 (3 successful, 0 failed)
+2026-09-07 13:19:59,504 - INFO - Fetching: https://www.rent.com.au/property/26a-fawkner-st-aberfeldie-vic-3040-6431277
+2026-09-07 13:19:59,824 - INFO - Successfully fetched https://www.rent.com.au/property/26a-fawkner-st-aberfeldie-vic-3040-6431277 (Status: 200)
+2026-09-07 13:19:59,828 - INFO - Stored page: https://www.rent.com.au/property/26a-fawkner-st-aberfeldie-vic-3040-6431277
+2026-09-07 13:19:59,828 - INFO - Progress: 4/4 (4 successful, 0 failed)
+2026-09-07 13:19:59,828 - INFO - Scraping complete. Successful: 4, Failed: 0
+2026-09-07 13:19:59,847 - INFO - Stored property details: 6476274
+2026-09-07 13:19:59,862 - INFO - Stored property details: 6469091
+2026-09-07 13:19:59,875 - INFO - Stored property details: 6449975
+2026-09-07 13:19:59,889 - INFO - Stored property details: 6431277
+2026-09-07 13:20:00,204 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:00,206 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:00,206 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:00,656 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:00,657 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:00,657 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:00,957 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:00,957 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:00,957 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:01,393 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:01,393 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:01,393 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:01,717 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:01,717 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:01,717 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:02,014 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:02,014 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:02,014 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:02,340 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:02,340 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:02,340 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:02,742 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:02,742 - INFO - Starting to scrape 17 URLs
+2026-09-07 13:20:02,742 - INFO - Fetching: https://www.rent.com.au/property/5-marwari-way-aintree-vic-3336-6481004
+2026-09-07 13:20:03,084 - INFO - Successfully fetched https://www.rent.com.au/property/5-marwari-way-aintree-vic-3336-6481004 (Status: 200)
+2026-09-07 13:20:03,090 - INFO - Stored page: https://www.rent.com.au/property/5-marwari-way-aintree-vic-3336-6481004
+2026-09-07 13:20:03,090 - INFO - Progress: 1/17 (1 successful, 0 failed)
+2026-09-07 13:20:05,095 - INFO - Fetching: https://www.rent.com.au/property/3-rhone-ave-aintree-vic-3336-6480821
+2026-09-07 13:20:05,353 - INFO - Successfully fetched https://www.rent.com.au/property/3-rhone-ave-aintree-vic-3336-6480821 (Status: 200)
+2026-09-07 13:20:05,357 - INFO - Stored page: https://www.rent.com.au/property/3-rhone-ave-aintree-vic-3336-6480821
+2026-09-07 13:20:05,357 - INFO - Progress: 2/17 (2 successful, 0 failed)
+2026-09-07 13:20:07,359 - INFO - Fetching: https://www.rent.com.au/property/50-woodlea-bvd-aintree-vic-3336-6467582
+2026-09-07 13:20:07,619 - INFO - Successfully fetched https://www.rent.com.au/property/50-woodlea-bvd-aintree-vic-3336-6467582 (Status: 200)
+2026-09-07 13:20:07,621 - INFO - Stored page: https://www.rent.com.au/property/50-woodlea-bvd-aintree-vic-3336-6467582
+2026-09-07 13:20:07,621 - INFO - Progress: 3/17 (3 successful, 0 failed)
+2026-09-07 13:20:09,626 - INFO - Fetching: https://www.rent.com.au/property/9-society-cct-aintree-vic-3336-6475617
+2026-09-07 13:20:09,928 - INFO - Successfully fetched https://www.rent.com.au/property/9-society-cct-aintree-vic-3336-6475617 (Status: 200)
+2026-09-07 13:20:09,930 - INFO - Stored page: https://www.rent.com.au/property/9-society-cct-aintree-vic-3336-6475617
+2026-09-07 13:20:09,930 - INFO - Progress: 4/17 (4 successful, 0 failed)
+2026-09-07 13:20:11,935 - INFO - Fetching: https://www.rent.com.au/property/157-pioneer-dr-aintree-vic-3336-4665818
+2026-09-07 13:20:12,226 - INFO - Successfully fetched https://www.rent.com.au/property/157-pioneer-dr-aintree-vic-3336-4665818 (Status: 200)
+2026-09-07 13:20:12,228 - INFO - Stored page: https://www.rent.com.au/property/157-pioneer-dr-aintree-vic-3336-4665818
+2026-09-07 13:20:12,228 - INFO - Progress: 5/17 (5 successful, 0 failed)
+2026-09-07 13:20:14,233 - INFO - Fetching: https://www.rent.com.au/property/34-pioneer-dr-aintree-vic-3336-4743832
+2026-09-07 13:20:14,503 - INFO - Successfully fetched https://www.rent.com.au/property/34-pioneer-dr-aintree-vic-3336-4743832 (Status: 200)
+2026-09-07 13:20:14,507 - INFO - Stored page: https://www.rent.com.au/property/34-pioneer-dr-aintree-vic-3336-4743832
+2026-09-07 13:20:14,507 - INFO - Progress: 6/17 (6 successful, 0 failed)
+2026-09-07 13:20:16,512 - INFO - Fetching: https://www.rent.com.au/property/10-newforest-dr-aintree-vic-3336-6469710
+2026-09-07 13:20:16,769 - INFO - Successfully fetched https://www.rent.com.au/property/10-newforest-dr-aintree-vic-3336-6469710 (Status: 200)
+2026-09-07 13:20:16,772 - INFO - Stored page: https://www.rent.com.au/property/10-newforest-dr-aintree-vic-3336-6469710
+2026-09-07 13:20:16,772 - INFO - Progress: 7/17 (7 successful, 0 failed)
+2026-09-07 13:20:18,777 - INFO - Fetching: https://www.rent.com.au/property/18-driftwood-st-aintree-vic-3336-6033375
+2026-09-07 13:20:19,042 - INFO - Successfully fetched https://www.rent.com.au/property/18-driftwood-st-aintree-vic-3336-6033375 (Status: 200)
+2026-09-07 13:20:19,050 - INFO - Stored page: https://www.rent.com.au/property/18-driftwood-st-aintree-vic-3336-6033375
+2026-09-07 13:20:19,051 - INFO - Progress: 8/17 (8 successful, 0 failed)
+2026-09-07 13:20:21,056 - INFO - Fetching: https://www.rent.com.au/property/68-wireless-dr-aintree-vic-3336-4987181
+2026-09-07 13:20:21,304 - INFO - Successfully fetched https://www.rent.com.au/property/68-wireless-dr-aintree-vic-3336-4987181 (Status: 200)
+2026-09-07 13:20:21,307 - INFO - Stored page: https://www.rent.com.au/property/68-wireless-dr-aintree-vic-3336-4987181
+2026-09-07 13:20:21,308 - INFO - Progress: 9/17 (9 successful, 0 failed)
+2026-09-07 13:20:23,311 - INFO - Fetching: https://www.rent.com.au/property/56-elmhurst-ave-aintree-vic-3336-6461997
+2026-09-07 13:20:23,571 - INFO - Successfully fetched https://www.rent.com.au/property/56-elmhurst-ave-aintree-vic-3336-6461997 (Status: 200)
+2026-09-07 13:20:23,574 - INFO - Stored page: https://www.rent.com.au/property/56-elmhurst-ave-aintree-vic-3336-6461997
+2026-09-07 13:20:23,574 - INFO - Progress: 10/17 (10 successful, 0 failed)
+2026-09-07 13:20:25,580 - INFO - Fetching: https://www.rent.com.au/property/37-caviar-cct-aintree-vic-3336-6457769
+2026-09-07 13:20:25,838 - INFO - Successfully fetched https://www.rent.com.au/property/37-caviar-cct-aintree-vic-3336-6457769 (Status: 200)
+2026-09-07 13:20:25,841 - INFO - Stored page: https://www.rent.com.au/property/37-caviar-cct-aintree-vic-3336-6457769
+2026-09-07 13:20:25,841 - INFO - Progress: 11/17 (11 successful, 0 failed)
+2026-09-07 13:20:27,846 - INFO - Fetching: https://www.rent.com.au/property/54-cordhill-cct-aintree-vic-3336-6450178
+2026-09-07 13:20:28,119 - INFO - Successfully fetched https://www.rent.com.au/property/54-cordhill-cct-aintree-vic-3336-6450178 (Status: 200)
+2026-09-07 13:20:28,120 - INFO - Stored page: https://www.rent.com.au/property/54-cordhill-cct-aintree-vic-3336-6450178
+2026-09-07 13:20:28,120 - INFO - Progress: 12/17 (12 successful, 0 failed)
+2026-09-07 13:20:30,126 - INFO - Fetching: https://www.rent.com.au/property/19-society-cct-aintree-vic-3336-6444556
+2026-09-07 13:20:30,398 - INFO - Successfully fetched https://www.rent.com.au/property/19-society-cct-aintree-vic-3336-6444556 (Status: 200)
+2026-09-07 13:20:30,400 - INFO - Stored page: https://www.rent.com.au/property/19-society-cct-aintree-vic-3336-6444556
+2026-09-07 13:20:30,400 - INFO - Progress: 13/17 (13 successful, 0 failed)
+2026-09-07 13:20:32,405 - INFO - Fetching: https://www.rent.com.au/property/45-orlov-st-aintree-vic-3336-6439301
+2026-09-07 13:20:32,665 - INFO - Successfully fetched https://www.rent.com.au/property/45-orlov-st-aintree-vic-3336-6439301 (Status: 200)
+2026-09-07 13:20:32,667 - INFO - Stored page: https://www.rent.com.au/property/45-orlov-st-aintree-vic-3336-6439301
+2026-09-07 13:20:32,667 - INFO - Progress: 14/17 (14 successful, 0 failed)
+2026-09-07 13:20:34,667 - INFO - Fetching: https://www.rent.com.au/property/59-warrigal-dr-aintree-vic-3336-4207358
+2026-09-07 13:20:34,962 - INFO - Successfully fetched https://www.rent.com.au/property/59-warrigal-dr-aintree-vic-3336-4207358 (Status: 200)
+2026-09-07 13:20:34,965 - INFO - Stored page: https://www.rent.com.au/property/59-warrigal-dr-aintree-vic-3336-4207358
+2026-09-07 13:20:34,965 - INFO - Progress: 15/17 (15 successful, 0 failed)
+2026-09-07 13:20:36,970 - INFO - Fetching: https://www.rent.com.au/property/7-broom-rd-aintree-vic-3336-6434039
+2026-09-07 13:20:37,235 - INFO - Successfully fetched https://www.rent.com.au/property/7-broom-rd-aintree-vic-3336-6434039 (Status: 200)
+2026-09-07 13:20:37,239 - INFO - Stored page: https://www.rent.com.au/property/7-broom-rd-aintree-vic-3336-6434039
+2026-09-07 13:20:37,239 - INFO - Progress: 16/17 (16 successful, 0 failed)
+2026-09-07 13:20:39,242 - INFO - Fetching: https://www.rent.com.au/property/47-orlov-st-aintree-vic-3336-6424760
+2026-09-07 13:20:39,638 - INFO - Successfully fetched https://www.rent.com.au/property/47-orlov-st-aintree-vic-3336-6424760 (Status: 200)
+2026-09-07 13:20:39,641 - INFO - Stored page: https://www.rent.com.au/property/47-orlov-st-aintree-vic-3336-6424760
+2026-09-07 13:20:39,641 - INFO - Progress: 17/17 (17 successful, 0 failed)
+2026-09-07 13:20:39,641 - INFO - Scraping complete. Successful: 17, Failed: 0
+2026-09-07 13:20:39,663 - INFO - Stored property details: 6481004
+2026-09-07 13:20:39,680 - INFO - Stored property details: 6480821
+2026-09-07 13:20:39,703 - INFO - Stored property details: 6467582
+2026-09-07 13:20:39,720 - INFO - Stored property details: 6475617
+2026-09-07 13:20:39,740 - INFO - Stored property details: 4665818
+2026-09-07 13:20:39,766 - INFO - Stored property details: 4743832
+2026-09-07 13:20:39,782 - INFO - Stored property details: 6469710
+2026-09-07 13:20:39,796 - INFO - Stored property details: 6033375
+2026-09-07 13:20:39,809 - INFO - Stored property details: 4987181
+2026-09-07 13:20:39,823 - INFO - Stored property details: 6461997
+2026-09-07 13:20:39,838 - INFO - Stored property details: 6457769
+2026-09-07 13:20:39,851 - INFO - Stored property details: 6450178
+2026-09-07 13:20:39,865 - INFO - Stored property details: 6444556
+2026-09-07 13:20:39,880 - INFO - Stored property details: 6439301
+2026-09-07 13:20:39,896 - INFO - Stored property details: 4207358
+2026-09-07 13:20:39,916 - INFO - Stored property details: 6434039
+2026-09-07 13:20:39,934 - INFO - Stored property details: 6424760
+2026-09-07 13:20:40,203 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:40,204 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:40,204 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:40,494 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:40,494 - INFO - Starting to scrape 1 URLs
+2026-09-07 13:20:40,494 - INFO - Fetching: https://www.rent.com.au/property/18-anderson-st-aireys-inlet-vic-3231-6246626
+2026-09-07 13:20:40,788 - INFO - Successfully fetched https://www.rent.com.au/property/18-anderson-st-aireys-inlet-vic-3231-6246626 (Status: 200)
+2026-09-07 13:20:40,790 - INFO - Stored page: https://www.rent.com.au/property/18-anderson-st-aireys-inlet-vic-3231-6246626
+2026-09-07 13:20:40,790 - INFO - Progress: 1/1 (1 successful, 0 failed)
+2026-09-07 13:20:40,790 - INFO - Scraping complete. Successful: 1, Failed: 0
+2026-09-07 13:20:40,816 - INFO - Stored property details: 6246626
+2026-09-07 13:20:41,121 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:41,122 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:20:41,122 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:20:41,496 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:20:41,496 - INFO - Starting to scrape 9 URLs
+2026-09-07 13:20:41,496 - INFO - Fetching: https://www.rent.com.au/property/3-53-mcintosh-st-airport-west-vic-3042-6479645
+2026-09-07 13:20:41,886 - INFO - Successfully fetched https://www.rent.com.au/property/3-53-mcintosh-st-airport-west-vic-3042-6479645 (Status: 200)
+2026-09-07 13:20:41,889 - INFO - Stored page: https://www.rent.com.au/property/3-53-mcintosh-st-airport-west-vic-3042-6479645
+2026-09-07 13:20:41,890 - INFO - Progress: 1/9 (1 successful, 0 failed)
+2026-09-07 13:20:43,892 - INFO - Fetching: https://www.rent.com.au/property/111-marshall-rd-airport-west-vic-3042-6477972
+2026-09-07 13:20:44,151 - INFO - Successfully fetched https://www.rent.com.au/property/111-marshall-rd-airport-west-vic-3042-6477972 (Status: 200)
+2026-09-07 13:20:44,155 - INFO - Stored page: https://www.rent.com.au/property/111-marshall-rd-airport-west-vic-3042-6477972
+2026-09-07 13:20:44,155 - INFO - Progress: 2/9 (2 successful, 0 failed)
+2026-09-07 13:20:46,160 - INFO - Fetching: https://www.rent.com.au/property/1-3-overs-st-airport-west-vic-3042-6473439
+2026-09-07 13:20:46,415 - INFO - Successfully fetched https://www.rent.com.au/property/1-3-overs-st-airport-west-vic-3042-6473439 (Status: 200)
+2026-09-07 13:20:46,420 - INFO - Stored page: https://www.rent.com.au/property/1-3-overs-st-airport-west-vic-3042-6473439
+2026-09-07 13:20:46,420 - INFO - Progress: 3/9 (3 successful, 0 failed)
+2026-09-07 13:20:48,424 - INFO - Fetching: https://www.rent.com.au/property/1-13-north-st-airport-west-vic-3042-6472847
+2026-09-07 13:20:48,695 - INFO - Successfully fetched https://www.rent.com.au/property/1-13-north-st-airport-west-vic-3042-6472847 (Status: 200)
+2026-09-07 13:20:48,699 - INFO - Stored page: https://www.rent.com.au/property/1-13-north-st-airport-west-vic-3042-6472847
+2026-09-07 13:20:48,699 - INFO - Progress: 4/9 (4 successful, 0 failed)
+2026-09-07 13:20:50,704 - INFO - Fetching: https://www.rent.com.au/property/17b-clydesdale-rd-airport-west-vic-3042-6464688
+2026-09-07 13:20:50,968 - INFO - Successfully fetched https://www.rent.com.au/property/17b-clydesdale-rd-airport-west-vic-3042-6464688 (Status: 200)
+2026-09-07 13:20:50,971 - INFO - Stored page: https://www.rent.com.au/property/17b-clydesdale-rd-airport-west-vic-3042-6464688
+2026-09-07 13:20:50,971 - INFO - Progress: 5/9 (5 successful, 0 failed)
+2026-09-07 13:20:52,976 - INFO - Fetching: https://www.rent.com.au/property/3-58-mcintosh-st-airport-west-vic-3042-6464281
+2026-09-07 13:20:53,354 - INFO - Successfully fetched https://www.rent.com.au/property/3-58-mcintosh-st-airport-west-vic-3042-6464281 (Status: 200)
+2026-09-07 13:20:53,356 - INFO - Stored page: https://www.rent.com.au/property/3-58-mcintosh-st-airport-west-vic-3042-6464281
+2026-09-07 13:20:53,357 - INFO - Progress: 6/9 (6 successful, 0 failed)
+2026-09-07 13:20:55,359 - INFO - Fetching: https://www.rent.com.au/property/3-20-green-st-airport-west-vic-3042-6458804
+2026-09-07 13:20:55,709 - INFO - Successfully fetched https://www.rent.com.au/property/3-20-green-st-airport-west-vic-3042-6458804 (Status: 200)
+2026-09-07 13:20:55,711 - INFO - Stored page: https://www.rent.com.au/property/3-20-green-st-airport-west-vic-3042-6458804
+2026-09-07 13:20:55,711 - INFO - Progress: 7/9 (7 successful, 0 failed)
+2026-09-07 13:20:57,717 - INFO - Fetching: https://www.rent.com.au/property/222-parer-rd-airport-west-vic-3042-6456138
+2026-09-07 13:20:57,962 - INFO - Successfully fetched https://www.rent.com.au/property/222-parer-rd-airport-west-vic-3042-6456138 (Status: 200)
+2026-09-07 13:20:57,965 - INFO - Stored page: https://www.rent.com.au/property/222-parer-rd-airport-west-vic-3042-6456138
+2026-09-07 13:20:57,965 - INFO - Progress: 8/9 (8 successful, 0 failed)
+2026-09-07 13:20:59,969 - INFO - Fetching: https://www.rent.com.au/property/2-41-matthews-ave-airport-west-vic-3042-6436896
+2026-09-07 13:21:00,209 - INFO - Successfully fetched https://www.rent.com.au/property/2-41-matthews-ave-airport-west-vic-3042-6436896 (Status: 200)
+2026-09-07 13:21:00,212 - INFO - Stored page: https://www.rent.com.au/property/2-41-matthews-ave-airport-west-vic-3042-6436896
+2026-09-07 13:21:00,212 - INFO - Progress: 9/9 (9 successful, 0 failed)
+2026-09-07 13:21:00,212 - INFO - Scraping complete. Successful: 9, Failed: 0
+2026-09-07 13:21:00,238 - INFO - Stored property details: 6479645
+2026-09-07 13:21:00,256 - INFO - Stored property details: 6477972
+2026-09-07 13:21:00,274 - INFO - Stored property details: 6473439
+2026-09-07 13:21:00,291 - INFO - Stored property details: 6472847
+2026-09-07 13:21:00,308 - INFO - Stored property details: 6464688
+2026-09-07 13:21:00,332 - INFO - Stored property details: 6464281
+2026-09-07 13:21:00,346 - INFO - Stored property details: 6458804
+2026-09-07 13:21:00,361 - INFO - Stored property details: 6456138
+2026-09-07 13:21:00,376 - INFO - Stored property details: 6436896
+2026-09-07 13:21:00,670 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:21:00,671 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:21:00,671 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:21:01,066 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:21:01,066 - INFO - Starting to scrape 7 URLs
+2026-09-07 13:21:01,066 - INFO - Fetching: https://www.rent.com.au/property/1a-wandella-ct-albanvale-vic-3021-6481312
+2026-09-07 13:21:01,385 - INFO - Successfully fetched https://www.rent.com.au/property/1a-wandella-ct-albanvale-vic-3021-6481312 (Status: 200)
+2026-09-07 13:21:01,387 - INFO - Stored page: https://www.rent.com.au/property/1a-wandella-ct-albanvale-vic-3021-6481312
+2026-09-07 13:21:01,387 - INFO - Progress: 1/7 (1 successful, 0 failed)
+2026-09-07 13:21:03,392 - INFO - Fetching: https://www.rent.com.au/property/35-angelique-gr-albanvale-vic-3021-6480842
+2026-09-07 13:21:03,658 - INFO - Successfully fetched https://www.rent.com.au/property/35-angelique-gr-albanvale-vic-3021-6480842 (Status: 200)
+2026-09-07 13:21:03,662 - INFO - Stored page: https://www.rent.com.au/property/35-angelique-gr-albanvale-vic-3021-6480842
+2026-09-07 13:21:03,662 - INFO - Progress: 2/7 (2 successful, 0 failed)
+2026-09-07 13:21:05,667 - INFO - Fetching: https://www.rent.com.au/property/29-appian-dr-albanvale-vic-3021-6472693
+2026-09-07 13:21:05,932 - INFO - Successfully fetched https://www.rent.com.au/property/29-appian-dr-albanvale-vic-3021-6472693 (Status: 200)
+2026-09-07 13:21:05,937 - INFO - Stored page: https://www.rent.com.au/property/29-appian-dr-albanvale-vic-3021-6472693
+2026-09-07 13:21:05,937 - INFO - Progress: 3/7 (3 successful, 0 failed)
+2026-09-07 13:21:07,942 - INFO - Fetching: https://www.rent.com.au/property/5-annetta-ct-albanvale-vic-3021-5218109
+2026-09-07 13:21:08,186 - INFO - Successfully fetched https://www.rent.com.au/property/5-annetta-ct-albanvale-vic-3021-5218109 (Status: 200)
+2026-09-07 13:21:08,189 - INFO - Stored page: https://www.rent.com.au/property/5-annetta-ct-albanvale-vic-3021-5218109
+2026-09-07 13:21:08,189 - INFO - Progress: 4/7 (4 successful, 0 failed)
+2026-09-07 13:21:10,193 - INFO - Fetching: https://www.rent.com.au/property/14-annetta-ct-albanvale-vic-3021-6443352
+2026-09-07 13:21:10,498 - INFO - Successfully fetched https://www.rent.com.au/property/14-annetta-ct-albanvale-vic-3021-6443352 (Status: 200)
+2026-09-07 13:21:10,500 - INFO - Stored page: https://www.rent.com.au/property/14-annetta-ct-albanvale-vic-3021-6443352
+2026-09-07 13:21:10,500 - INFO - Progress: 5/7 (5 successful, 0 failed)
+2026-09-07 13:21:12,500 - INFO - Fetching: https://www.rent.com.au/property/19-annetta-ct-albanvale-vic-3021-6442097
+2026-09-07 13:21:12,789 - INFO - Successfully fetched https://www.rent.com.au/property/19-annetta-ct-albanvale-vic-3021-6442097 (Status: 200)
+2026-09-07 13:21:12,791 - INFO - Stored page: https://www.rent.com.au/property/19-annetta-ct-albanvale-vic-3021-6442097
+2026-09-07 13:21:12,791 - INFO - Progress: 6/7 (6 successful, 0 failed)
+2026-09-07 13:21:14,797 - INFO - Fetching: https://www.rent.com.au/property/rooms-2456789-19-annetta-ct-albanvale-vic-3021-6348154
+2026-09-07 13:21:15,168 - INFO - Successfully fetched https://www.rent.com.au/property/rooms-2456789-19-annetta-ct-albanvale-vic-3021-6348154 (Status: 200)
+2026-09-07 13:21:15,173 - INFO - Stored page: https://www.rent.com.au/property/rooms-2456789-19-annetta-ct-albanvale-vic-3021-6348154
+2026-09-07 13:21:15,173 - INFO - Progress: 7/7 (7 successful, 0 failed)
+2026-09-07 13:21:15,173 - INFO - Scraping complete. Successful: 7, Failed: 0
+2026-09-07 13:21:15,195 - INFO - Stored property details: 6481312
+2026-09-07 13:21:15,210 - INFO - Stored property details: 6480842
+2026-09-07 13:21:15,224 - INFO - Stored property details: 6472693
+2026-09-07 13:21:15,238 - INFO - Stored property details: 5218109
+2026-09-07 13:21:15,252 - INFO - Stored property details: 6443352
+2026-09-07 13:21:15,266 - INFO - Stored property details: 6442097
+2026-09-07 13:21:15,281 - INFO - Stored property details: 6348154
+2026-09-07 13:21:15,589 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:21:15,591 - INFO - Starting to scrape 3 URLs
+2026-09-07 13:21:15,591 - INFO - Fetching: https://www.rent.com.au/property/24-withers-st-albert-park-vic-3206-6429037
+2026-09-07 13:21:15,897 - INFO - Successfully fetched https://www.rent.com.au/property/24-withers-st-albert-park-vic-3206-6429037 (Status: 200)
+2026-09-07 13:21:15,900 - INFO - Stored page: https://www.rent.com.au/property/24-withers-st-albert-park-vic-3206-6429037
+2026-09-07 13:21:15,900 - INFO - Progress: 1/3 (1 successful, 0 failed)
+2026-09-07 13:21:17,905 - INFO - Fetching: https://www.rent.com.au/property/85-st-vincent-st-albert-park-vic-3206-6416598
+2026-09-07 13:21:18,206 - INFO - Successfully fetched https://www.rent.com.au/property/85-st-vincent-st-albert-park-vic-3206-6416598 (Status: 200)
+2026-09-07 13:21:18,209 - INFO - Stored page: https://www.rent.com.au/property/85-st-vincent-st-albert-park-vic-3206-6416598
+2026-09-07 13:21:18,209 - INFO - Progress: 2/3 (2 successful, 0 failed)
+2026-09-07 13:21:20,215 - INFO - Fetching: https://www.rent.com.au/property/9-young-st-albert-park-vic-3206-6354788
+2026-09-07 13:21:20,545 - INFO - Successfully fetched https://www.rent.com.au/property/9-young-st-albert-park-vic-3206-6354788 (Status: 200)
+2026-09-07 13:21:20,549 - INFO - Stored page: https://www.rent.com.au/property/9-young-st-albert-park-vic-3206-6354788
+2026-09-07 13:21:20,549 - INFO - Progress: 3/3 (3 successful, 0 failed)
+2026-09-07 13:21:20,549 - INFO - Scraping complete. Successful: 3, Failed: 0
+2026-09-07 13:21:20,580 - INFO - Stored property details: 6429037
+2026-09-07 13:21:20,599 - INFO - Stored property details: 6416598
+2026-09-07 13:21:20,616 - INFO - Stored property details: 6354788
+2026-09-07 13:21:20,921 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:21:20,922 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:21:20,922 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:21:21,238 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:21:21,238 - INFO - Starting to scrape 0 URLs
+2026-09-07 13:21:21,238 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-07 13:21:21,587 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-07 13:21:21,588 - INFO - Starting to scrape 9 URLs
+2026-09-07 13:21:21,588 - INFO - Fetching: https://www.rent.com.au/property/3-11-wyalong-st-albion-vic-3020-6481208
+2026-09-07 13:21:21,886 - INFO - Successfully fetched https://www.rent.com.au/property/3-11-wyalong-st-albion-vic-3020-6481208 (Status: 200)
+2026-09-07 13:21:21,889 - INFO - Stored page: https://www.rent.com.au/property/3-11-wyalong-st-albion-vic-3020-6481208
+2026-09-07 13:21:21,889 - INFO - Progress: 1/9 (1 successful, 0 failed)
+2026-09-07 13:21:23,893 - INFO - Fetching: https://www.rent.com.au/property/11-26-forrest-st-albion-vic-3020-6219491
+2026-09-07 13:21:24,140 - INFO - Successfully fetched https://www.rent.com.au/property/11-26-forrest-st-albion-vic-3020-6219491 (Status: 200)
+2026-09-07 13:21:24,144 - INFO - Stored page: https://www.rent.com.au/property/11-26-forrest-st-albion-vic-3020-6219491
+2026-09-07 13:21:24,144 - INFO - Progress: 2/9 (2 successful, 0 failed)
+2026-09-07 13:21:26,086 - INFO - Fetching: https://www.rent.com.au/property/6-westgate-ave-albion-vic-3020-6476839
+2026-09-07 13:21:26,346 - INFO - Successfully fetched https://www.rent.com.au/property/6-westgate-ave-albion-vic-3020-6476839 (Status: 200)
+2026-09-07 13:21:26,350 - INFO - Stored page: https://www.rent.com.au/property/6-westgate-ave-albion-vic-3020-6476839
+2026-09-07 13:21:26,350 - INFO - Progress: 3/9 (3 successful, 0 failed)
+2026-09-07 13:21:28,355 - INFO - Fetching: https://www.rent.com.au/property/5-22-forrest-st-albion-vic-3020-6476173
+2026-09-07 13:21:28,641 - INFO - Successfully fetched https://www.rent.com.au/property/5-22-forrest-st-albion-vic-3020-6476173 (Status: 200)
+2026-09-07 13:21:28,645 - INFO - Stored page: https://www.rent.com.au/property/5-22-forrest-st-albion-vic-3020-6476173
+2026-09-07 13:21:28,645 - INFO - Progress: 4/9 (4 successful, 0 failed)
+2026-09-07 13:21:30,650 - INFO - Fetching: https://www.rent.com.au/property/11-hutchinson-st-albion-vic-3020-6473789
+2026-09-07 13:21:30,654 - WARNING - Connection pool is full, discarding connection: www.rent.com.au. Connection pool size: 10
