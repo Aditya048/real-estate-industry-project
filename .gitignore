@@ -1,0 +1,4 @@
+scraping_pipeline/data/**
+!scraping_pipeline/data/**/
+!scraping_pipeline/data/**/.gitkeep
+*/__pycache__/
