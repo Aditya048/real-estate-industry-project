@@ -1,5 +1,5 @@
 from url_retrieval import get_listing_urls
-from html_retrival_pipeline.html_retrieval import WebScraper
+from html_retrival.html_retrieval import WebScraper
 from html_parser.html_parser import parse_html
 
 import json
