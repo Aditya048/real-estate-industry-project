@@ -2,3 +2,4 @@ scraping_pipeline/data/**
 !scraping_pipeline/data/**/
 !scraping_pipeline/data/**/.gitkeep
 scraping_pipeline/*/__pycache__/
+scraping_pipeline/__pycache__/
