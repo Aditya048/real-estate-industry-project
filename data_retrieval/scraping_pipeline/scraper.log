@@ -3421,3 +3421,118 @@
 2026-09-09 10:33:29,785 - INFO - Stored property details: 6453960
 2026-09-09 10:33:29,829 - INFO - Stored property details: 6452985
 2026-09-09 10:33:29,843 - INFO - Stored property details: 6452800
+2026-09-12 16:19:17,919 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-12 16:19:17,919 - INFO - PropertyDatabase initialized at data/properties_db/properties.db
+2026-09-12 16:19:17,919 - INFO - Starting property scrape. Current count: 27
+2026-09-12 16:19:17,919 - INFO - Processing ABBEYARD, 3737
+2026-09-12 16:19:18,041 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:19:18,041 - INFO - Starting to scrape 0 URLs
+2026-09-12 16:19:18,041 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-12 16:19:18,041 - INFO - Processing ABBOTSFORD, 3067
+2026-09-12 16:19:18,267 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:19:18,267 - INFO - Starting to scrape 25 URLs
+2026-09-12 16:19:18,267 - INFO - Fetching: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:19:18,639 - INFO - Successfully fetched https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229 (Status: 200)
+2026-09-12 16:19:18,647 - INFO - Stored page: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:19:18,647 - INFO - Progress: 1/25 (1 successful, 0 failed)
+2026-09-12 16:19:20,648 - INFO - Fetching: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:19:20,994 - INFO - Successfully fetched https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072 (Status: 200)
+2026-09-12 16:19:21,002 - INFO - Stored page: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:19:21,002 - INFO - Progress: 2/25 (2 successful, 0 failed)
+2026-09-12 16:19:23,003 - INFO - Fetching: https://www.rent.com.au/property/613-1-acacia-pl-abbotsford-vic-3067-6484303
+2026-09-12 16:19:23,350 - INFO - Successfully fetched https://www.rent.com.au/property/613-1-acacia-pl-abbotsford-vic-3067-6484303 (Status: 200)
+2026-09-12 16:19:23,358 - INFO - Stored page: https://www.rent.com.au/property/613-1-acacia-pl-abbotsford-vic-3067-6484303
+2026-09-12 16:19:23,358 - INFO - Progress: 3/25 (3 successful, 0 failed)
+2026-09-12 16:19:25,359 - INFO - Fetching: https://www.rent.com.au/property/t211-119-turner-st-abbotsford-vic-3067-6484213
+2026-09-12 16:19:25,711 - INFO - Successfully fetched https://www.rent.com.au/property/t211-119-turner-st-abbotsford-vic-3067-6484213 (Status: 200)
+2026-09-12 16:19:25,716 - INFO - Stored page: https://www.rent.com.au/property/t211-119-turner-st-abbotsford-vic-3067-6484213
+2026-09-12 16:19:25,716 - INFO - Progress: 4/25 (4 successful, 0 failed)
+2026-09-12 16:19:27,557 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-12 16:19:27,557 - INFO - PropertyDatabase initialized at data/properties_db/properties.db
+2026-09-12 16:19:27,557 - INFO - Starting property scrape. Current count: 27
+2026-09-12 16:19:27,557 - INFO - Processing ABBEYARD, 3737
+2026-09-12 16:19:27,766 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:19:27,766 - INFO - Starting to scrape 0 URLs
+2026-09-12 16:19:27,766 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-12 16:19:27,766 - INFO - Processing ABBOTSFORD, 3067
+2026-09-12 16:19:27,998 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:19:27,998 - INFO - Starting to scrape 25 URLs
+2026-09-12 16:19:27,998 - INFO - Fetching: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:19:28,367 - INFO - Successfully fetched https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229 (Status: 200)
+2026-09-12 16:19:28,375 - INFO - Stored page: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:19:28,375 - INFO - Progress: 1/25 (1 successful, 0 failed)
+2026-09-12 16:19:30,375 - INFO - Fetching: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:20:00,305 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-12 16:20:00,305 - INFO - PropertyDatabase initialized at data/properties_db/properties.db
+2026-09-12 16:20:00,305 - INFO - Starting property scrape. Current count: 27
+2026-09-12 16:20:00,305 - INFO - Processing ABBEYARD, 3737
+2026-09-12 16:20:00,431 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:20:00,431 - INFO - Starting to scrape 0 URLs
+2026-09-12 16:20:00,431 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-12 16:20:00,432 - INFO - Processing ABBOTSFORD, 3067
+2026-09-12 16:20:00,659 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:20:00,659 - INFO - Starting to scrape 25 URLs
+2026-09-12 16:20:00,659 - INFO - Fetching: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:20:01,033 - INFO - Successfully fetched https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229 (Status: 200)
+2026-09-12 16:20:01,041 - INFO - Stored page: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:20:01,041 - INFO - Progress: 1/25 (1 successful, 0 failed)
+2026-09-12 16:20:03,041 - INFO - Fetching: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:20:03,387 - INFO - Successfully fetched https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072 (Status: 200)
+2026-09-12 16:20:03,395 - INFO - Stored page: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:20:03,395 - INFO - Progress: 2/25 (2 successful, 0 failed)
+2026-09-12 16:20:05,396 - INFO - Fetching: https://www.rent.com.au/property/613-1-acacia-pl-abbotsford-vic-3067-6484303
+2026-09-12 16:20:05,750 - INFO - Successfully fetched https://www.rent.com.au/property/613-1-acacia-pl-abbotsford-vic-3067-6484303 (Status: 200)
+2026-09-12 16:20:05,819 - INFO - Stored page: https://www.rent.com.au/property/613-1-acacia-pl-abbotsford-vic-3067-6484303
+2026-09-12 16:20:05,819 - INFO - Progress: 3/25 (3 successful, 0 failed)
+2026-09-12 16:20:07,819 - INFO - Fetching: https://www.rent.com.au/property/t211-119-turner-st-abbotsford-vic-3067-6484213
+2026-09-12 16:20:08,201 - INFO - Successfully fetched https://www.rent.com.au/property/t211-119-turner-st-abbotsford-vic-3067-6484213 (Status: 200)
+2026-09-12 16:20:08,267 - INFO - Stored page: https://www.rent.com.au/property/t211-119-turner-st-abbotsford-vic-3067-6484213
+2026-09-12 16:20:08,267 - INFO - Progress: 4/25 (4 successful, 0 failed)
+2026-09-12 16:20:10,267 - INFO - Fetching: https://www.rent.com.au/property/126-6-acacia-pl-abbotsford-vic-3067-6484049
+2026-09-12 16:20:10,667 - INFO - Successfully fetched https://www.rent.com.au/property/126-6-acacia-pl-abbotsford-vic-3067-6484049 (Status: 200)
+2026-09-12 16:20:10,732 - INFO - Stored page: https://www.rent.com.au/property/126-6-acacia-pl-abbotsford-vic-3067-6484049
+2026-09-12 16:20:10,732 - INFO - Progress: 5/25 (5 successful, 0 failed)
+2026-09-12 16:20:12,733 - INFO - Fetching: https://www.rent.com.au/property/69-charles-st-abbotsford-vic-3067-6482386
+2026-09-12 16:20:13,224 - INFO - Successfully fetched https://www.rent.com.au/property/69-charles-st-abbotsford-vic-3067-6482386 (Status: 200)
+2026-09-12 16:20:13,233 - INFO - Stored page: https://www.rent.com.au/property/69-charles-st-abbotsford-vic-3067-6482386
+2026-09-12 16:20:13,233 - INFO - Progress: 6/25 (6 successful, 0 failed)
+2026-09-12 16:20:15,233 - INFO - Fetching: https://www.rent.com.au/property/bg01-8-grosvenor-st-abbotsford-vic-3067-6481598
+2026-09-12 16:20:15,574 - INFO - Successfully fetched https://www.rent.com.au/property/bg01-8-grosvenor-st-abbotsford-vic-3067-6481598 (Status: 200)
+2026-09-12 16:20:15,582 - INFO - Stored page: https://www.rent.com.au/property/bg01-8-grosvenor-st-abbotsford-vic-3067-6481598
+2026-09-12 16:20:15,582 - INFO - Progress: 7/25 (7 successful, 0 failed)
+2026-09-12 16:20:17,582 - INFO - Fetching: https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309
+2026-09-12 16:20:17,928 - INFO - Successfully fetched https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309 (Status: 200)
+2026-09-12 16:20:17,934 - INFO - Stored page: https://www.rent.com.au/property/709-20-shamrock-st-abbotsford-vic-3067-6480309
+2026-09-12 16:20:17,934 - INFO - Progress: 8/25 (8 successful, 0 failed)
+2026-09-12 16:40:10,111 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-12 16:40:10,111 - INFO - PropertyDatabase initialized at data/properties_db/properties.db
+2026-09-12 16:40:10,111 - INFO - Starting property scrape. Current count: 27
+2026-09-12 16:40:10,111 - INFO - Processing ABBEYARD, 3737
+2026-09-12 16:40:10,695 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:40:10,695 - INFO - Starting to scrape 0 URLs
+2026-09-12 16:40:10,695 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-12 16:40:10,695 - INFO - Processing ABBOTSFORD, 3067
+2026-09-12 16:40:11,128 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:40:11,128 - INFO - Starting to scrape 25 URLs
+2026-09-12 16:40:11,128 - INFO - Fetching: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:40:11,501 - INFO - Successfully fetched https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229 (Status: 200)
+2026-09-12 16:40:11,511 - INFO - Stored page: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:40:11,511 - INFO - Progress: 1/25 (1 successful, 0 failed)
+2026-09-12 16:40:13,511 - INFO - Fetching: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:40:13,856 - INFO - Successfully fetched https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072 (Status: 200)
+2026-09-12 16:40:13,865 - INFO - Stored page: https://www.rent.com.au/property/12-28-nicholson-st-abbotsford-vic-3067-6485072
+2026-09-12 16:40:13,865 - INFO - Progress: 2/25 (2 successful, 0 failed)
+2026-09-12 16:44:01,869 - INFO - property_details table ready in data/properties_db/properties.db
+2026-09-12 16:44:01,869 - INFO - PropertyDatabase initialized at data/properties_db/properties.db
+2026-09-12 16:44:01,869 - INFO - Starting property scrape. Current count: 27
+2026-09-12 16:44:01,869 - INFO - Processing ABBEYARD, 3737
+2026-09-12 16:44:02,018 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:44:02,018 - INFO - Starting to scrape 0 URLs
+2026-09-12 16:44:02,018 - INFO - Scraping complete. Successful: 0, Failed: 0
+2026-09-12 16:44:02,018 - INFO - Processing ABBOTSFORD, 3067
+2026-09-12 16:44:02,208 - INFO - Database initialized at data/properties_db/properties.db
+2026-09-12 16:44:02,208 - INFO - Starting to scrape 25 URLs
+2026-09-12 16:44:02,208 - INFO - Fetching: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:44:02,720 - INFO - Successfully fetched https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229 (Status: 200)
+2026-09-12 16:44:02,728 - INFO - Stored page: https://www.rent.com.au/property/79-turner-st-abbotsford-vic-3067-6486229
+2026-09-12 16:44:02,729 - INFO - Progress: 1/25 (1 successful, 0 failed)
