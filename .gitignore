@@ -3,3 +3,6 @@ scraping_pipeline/data/**
 !scraping_pipeline/data/**/.gitkeep
 scraping_pipeline/*/__pycache__/
 scraping_pipeline/__pycache__/
+data_retrieval/retrieval_info.log
+data/properties_db
+data/geospatial_data

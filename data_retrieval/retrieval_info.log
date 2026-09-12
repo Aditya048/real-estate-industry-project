@@ -1,4 +1,0 @@
-2026-09-12 15:27:38,203 - INFO - Creating SA2 directory if not already there...
-2026-09-12 15:27:41,973 - INFO - Saved zip file temporarily to: data/geospatial_data/SA2_2021_AUST_SHP_GDA2020.zip
-2026-09-12 15:27:42,183 - INFO - Extracted zip file to: data/geospatial_data/SA2_2021_AUST_GDA2020
-2026-09-12 15:27:42,185 - INFO - Removed zip file: data/geospatial_data/SA2_2021_AUST_SHP_GDA2020.zip

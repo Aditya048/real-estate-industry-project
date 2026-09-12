@@ -1,15 +1,13 @@
-import requests
-from pathlib import Path
-import zipfile
-
-sa2_data_path = "data/ABS_
-def find_SA2(latitude, longitude):
+import geopandas as gpd
+from shapely.geometry import Point
+def find_SA2(data, latitude, longitude):
     """
     This function takes in latitude and longitude coordinates 
     and outputs the Statistical Area Level 2 (SA2) that contains 
     the point.
 
     Args:
+        data: The geospatial data containing the SA2 polygons
         latitude: Latitude coordinate as a decimal
         longitude: Longitidue coordinate as a decimal
 
@@ -23,12 +21,12 @@ def find_SA2(latitude, longitude):
     )
 
     # Make sure the point uses the same CRS as the SA2 polygons
-    point = point.to_crs(AusBS_Vic_Zones.crs)
+    point = point.to_crs(data.crs)
 
     # Find the SA2 containing the point
     match = gpd.sjoin(
         point,
-        AusBS_Vic_Zones[["SA2_NAME21", "geometry"]],
+        data[["SA2_NAME21", "geometry"]],
         how="left",
         predicate="within"
     )
