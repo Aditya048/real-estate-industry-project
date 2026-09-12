@@ -1,7 +1,4 @@
-scraping_pipeline/data/**
-!scraping_pipeline/data/**/
-!scraping_pipeline/data/**/.gitkeep
-data_retrieval/retrieval_info.log
 data/properties_db
 data/geospatial_data
 __pycache__/
+*.log
