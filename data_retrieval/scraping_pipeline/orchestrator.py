@@ -5,31 +5,29 @@ This shows how to use the PropertyDatabase class - it's deliberately simple
 so non-technical teammates can understand and modify it.
 """
 
+
 import requests
 import pandas as pd
-from url_retrieval import get_listing_urls
-from html_retrieval.html_retrieval import WebScraper
-from html_parser.html_parser import parse_html
+from .url_retrieval.url_retrieval import get_listing_urls
+from .html_retrieval.html_retrieval import WebScraper
+from .html_parser.html_parser import parse_html
 import logging
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from property_database.property_database import PropertyDatabase
 
 # Configure logging
 logging.basicConfig(
+    filename='data_retrieval/scraping_pipeline/scraper.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
 )
 logger = logging.getLogger(__name__)
 
 # Load postcodes
-postcodes = pd.read_csv("scraping_pipeline/data/VIC_postcodes.csv")
+postcodes = pd.read_csv("data/VIC_postcodes.csv")
 
 # Initialize the database (this creates the table automatically)
-DB_PATH = "scraping_pipeline/data/properties_db/properties.db"
+DB_PATH = "data/properties_db/properties.db"
 property_db = PropertyDatabase(db_path=DB_PATH)
 
 logger.info(f"Starting property scrape. Current count: {property_db.get_count()}")
