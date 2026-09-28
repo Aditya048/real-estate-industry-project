@@ -41,7 +41,7 @@ pip install -r requirements.txt
 ## Quick Start
 
 ```python
-from web_scraper import WebScraper
+from data_retrieval.scraping_pipeline.html_retrieval.html_retrieval import WebScraper
 
 # Initialize the scraper
 scraper = WebScraper(db_path='webpages.db', timeout=10)
@@ -561,7 +561,7 @@ print(cursor.fetchall())
 ### Example 1: Scrape Real Estate Listings
 
 ```python
-from web_scraper import WebScraper
+from data_retrieval.scraping_pipeline.html_retrieval.html_retrieval import WebScraper
 
 # URLs of properties to scrape
 property_urls = [
@@ -580,7 +580,7 @@ print(f"Scraped {stats['successful']} properties successfully")
 ### Example 2: Extract Data from Stored HTML
 
 ```python
-from web_scraper import WebScraper
+from data_retrieval.scraping_pipeline.html_retrieval.html_retrieval import WebScraper
 from bs4 import BeautifulSoup
 
 scraper = WebScraper()

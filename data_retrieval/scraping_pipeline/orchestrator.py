@@ -1,57 +1,88 @@
 """
 Main orchestration script for scraping Victorian rental property listings.
+
+Run from the repository root:
+    python -m data_retrieval.scraping_pipeline.orchestrator
+
+Writes SQLite + CSV export under data/properties_db/.
 """
 
+from __future__ import annotations
 
-import requests
-import pandas as pd
-from .url_retrieval.url_retrieval import get_listing_urls
-from .html_retrieval.html_retrieval import WebScraper
-from .html_parser.html_parser import parse_html
+import argparse
 import logging
+from pathlib import Path
+
+import pandas as pd
+import requests
 
 from property_database.property_database import PropertyDatabase
 
-# Configure logging
-logging.basicConfig(
-    filename='data_retrieval/scraping_pipeline/scraper.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-)
-logger = logging.getLogger(__name__)
+from .html_parser.html_parser import parse_html
+from .html_retrieval.html_retrieval import WebScraper
+from .url_retrieval.url_retrieval import get_listing_urls
 
-# Load postcodes
-postcodes = pd.read_csv("data/VIC_postcodes.csv")
-
-# Initialize the database (this creates the table automatically)
 DB_PATH = "data/properties_db/properties.db"
-property_db = PropertyDatabase(db_path=DB_PATH)
+CSV_PATH = "data/properties_db/properties.csv"
+POSTCODES_PATH = "data/VIC_postcodes.csv"
+LOG_PATH = "data_retrieval/scraping_pipeline/scraper.log"
 
-logger.info(f"Starting property scrape. Current count: {property_db.get_count()}")
 
-# Loop through each postcode and suburb
-for row in postcodes.iloc:
-    suburb = row["Suburb"]
-    postcode = row["Postcode"]
-    
-    logger.info(f"Processing {suburb}, {postcode}")
-    
-    # Get the list of URLs
-    try:
-        urls = get_listing_urls(suburb, postcode)
-    except requests.exceptions.HTTPError:
-        logger.warning(f"Skipping {suburb}, {postcode} due to HTTPError")
-        continue
-    
-    # Scrape all URLs for this suburb
+def main(limit: int | None = None) -> None:
+    Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
+
+    logging.basicConfig(
+        filename=LOG_PATH,
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+    )
+    logger = logging.getLogger(__name__)
+
+    postcodes = pd.read_csv(POSTCODES_PATH)
+    if limit is not None:
+        postcodes = postcodes.head(limit)
+
+    property_db = PropertyDatabase(db_path=DB_PATH)
+    logger.info("Starting property scrape. Current count: %s", property_db.get_count())
+
     scraper = WebScraper(db_path=DB_PATH)
-    scraper.scrape_urls(urls, delay_between_requests=2.0)
-    
-    # Parse and store each URL
-    for url in urls:
-        html_str = scraper.retrieve_page(url)
-        if html_str:
-            data = parse_html(html_str)
-            property_db.save(data)  # ← That's it. One line per listing.
 
-logger.info(f"Scraping complete. Total stored: {property_db.get_count()}")
+    for row in postcodes.itertuples(index=False):
+        suburb = row.Suburb
+        postcode = row.Postcode
+
+        logger.info("Processing %s, %s", suburb, postcode)
+
+        try:
+            urls = get_listing_urls(suburb, postcode)
+        except requests.exceptions.HTTPError:
+            logger.warning("Skipping %s, %s due to HTTPError", suburb, postcode)
+            continue
+
+        scraper.scrape_urls(urls, delay_between_requests=2.0)
+
+        for url in urls:
+            html_str = scraper.retrieve_page(url)
+            if html_str:
+                data = parse_html(html_str)
+                property_db.save(data)
+
+    export_path = property_db.export_csv(CSV_PATH)
+    logger.info(
+        "Scraping complete. Total stored: %s. CSV export: %s",
+        property_db.get_count(),
+        export_path,
+    )
+    print(f"Scraping complete. {property_db.get_count()} listings -> {export_path}")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Only process the first N suburbs (smoke test).",
+    )
+    args = parser.parse_args()
+    main(limit=args.limit)

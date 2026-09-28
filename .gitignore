@@ -1,7 +1,44 @@
-data/properties_db
-data/geospatial_data
+# Local environments
+venv/
+.venv/
+
+# Python bytecode / caches
 __pycache__/
+*.py[cod]
+*$py.class
 *.log
 
+# Scrape DB + CSV export (regenerable)
+data/properties_db/*
+!data/properties_db/.gitkeep
+
+# ABS SA2 shapefile (regenerable via sa2_data.py)
+data/geospatial_data/*
+!data/geospatial_data/.gitkeep
+
+# ABS SDMX panel (regenerable via fetch_time_varying_data.py)
+data/sa2_panel/*
+!data/sa2_panel/.gitkeep
+
+# Amenity inputs/outputs (schools, GTFS, route distances)
+data/amenity_data/*
+!data/amenity_data/.gitkeep
+
+# OSRM / OSM routing graphs
+data/osrm/*
+!data/osrm/.gitkeep
+*.osm.pbf
+*.osrm
+*.osrm*
+
+# Forecasting notebook downloads / cleaned exports
+data/forecasting/*
+!data/forecasting/.gitkeep
+
+# Preprocessed modelling table
+data/preprocessed_data/*
+!data/preprocessed_data/.gitkeep
+
+# Legacy ABS panel landing dir (outputs now under data/sa2_panel/)
 data_retrieval/time_varying_data/landing/*
 !data_retrieval/time_varying_data/landing/.gitkeep

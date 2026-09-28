@@ -171,3 +171,37 @@ class PropertyDatabase:
         except sqlite3.Error as e:
             logger.error(f"Error getting count: {e}")
             return 0
+
+    def export_csv(self, csv_path: str = 'data/properties_db/properties.csv') -> str:
+        """Export property_details to CSV for downstream notebooks/scripts."""
+        import csv
+        from pathlib import Path
+
+        path = Path(csv_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM property_details')
+            rows = cursor.fetchall()
+            conn.close()
+        except sqlite3.Error as e:
+            logger.error(f"Error exporting CSV: {e}")
+            raise
+
+        if not rows:
+            path.write_text('')
+            logger.warning(f"No rows to export; wrote empty file at {path}")
+            return str(path)
+
+        fieldnames = list(rows[0].keys())
+        with open(path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in rows:
+                writer.writerow(dict(row))
+
+        logger.info(f"Exported {len(rows)} listings to {path}")
+        return str(path)

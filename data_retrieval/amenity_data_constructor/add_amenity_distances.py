@@ -3,9 +3,9 @@ add_amenity_distances.py
 
 WHAT THIS SCRIPT DOES
 ----------------------
-Takes your rent.com.au listings dataset (data/properties.csv) and, for
-every listing, computes ROUTE distance (actual road/path distance, not
-straight-line) in kilometres to the nearest:
+Takes your rent.com.au listings dataset (data/properties_db/properties.csv)
+and, for every listing, computes ROUTE distance (actual road/path distance,
+not straight-line) in kilometres to the nearest:
 
   - school               -> CAR routing
   - train station        -> CAR routing   (metro + regional combined)
@@ -91,9 +91,9 @@ EARTH_RADIUS_KM = 6371.0088
 # EDIT ME: paths and settings
 # =============================================================================
 
-PROPERTIES_PATH = "data/amenity_data/properties.csv"
+PROPERTIES_PATH = "data/properties_db/properties.csv"
 SCHOOLS_CSV_PATH = "data/amenity_data/dv346-schoollocations2023.csv"
-GTFS_ZIP_PATH = "data/amenity_data/amenity_data/gtfs.zip"
+GTFS_ZIP_PATH = "data/amenity_data/gtfs.zip"
 OUTPUT_PATH = "data/amenity_data/listings_with_amenity_distances.csv"
 
 SCHOOLS_CSV_URL = "https://www.education.vic.gov.au/Documents/about/research/datavic/dv346-schoollocations2023.csv"
@@ -465,6 +465,41 @@ def dedupe_and_compute(properties: pd.DataFrame, compute_fn, *args, **kwargs) ->
 # Main
 # -----------------------------------------------------------------------------
 
+def _osrm_is_up(base_url: str, profile: str) -> bool:
+    """Cheap ping: ask OSRM to route a tiny CBD segment. False if not an OSRM server."""
+    # Flinders St -> nearby point (lon,lat)
+    url = f"{base_url}/route/v1/{profile}/144.9670,-37.8183;144.9700,-37.8150"
+    try:
+        resp = requests.get(url, timeout=5)
+        return resp.ok and "routes" in resp.json()
+    except (requests.exceptions.RequestException, ValueError, KeyError):
+        return False
+
+
+def preflight() -> None:
+    """Fail fast with actionable messages instead of producing all-NaN columns."""
+    props = Path(PROPERTIES_PATH)
+    if not props.exists():
+        raise SystemExit(
+            f"Missing properties CSV at {PROPERTIES_PATH}.\n"
+            "Run the scrape orchestrator first (writes data/properties_db/properties.csv),\n"
+            "or copy/export your listings CSV there. See README.md."
+        )
+
+    if not _osrm_is_up(OSRM_CAR_URL, "driving"):
+        raise SystemExit(
+            f"Car OSRM not responding at {OSRM_CAR_URL}.\n"
+            "Follow data_retrieval/amenity_data_constructor/OSRM_SETUP.md "
+            "(extract under data/osrm/, then start osrm-routed). "
+            "On macOS, port 5000 is often AirPlay — use another host port if needed."
+        )
+    if not _osrm_is_up(OSRM_FOOT_URL, "foot"):
+        raise SystemExit(
+            f"Foot OSRM not responding at {OSRM_FOOT_URL}.\n"
+            "Start the foot profile server (see OSRM_SETUP.md)."
+        )
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sample", type=int, default=None,
@@ -473,9 +508,16 @@ def main():
                               "*_sample{N}.csv file so it can't overwrite your real results.")
     parser.add_argument("--workers", type=int, default=MAX_WORKERS, help="Thread pool size for OSRM requests")
     parser.add_argument("--batch-size", type=int, default=BATCH_SIZE, help="Properties per OSRM /table/ call")
+    parser.add_argument("--skip-preflight", action="store_true",
+                         help="Skip OSRM/CSV checks (not recommended).")
     args = parser.parse_args()
 
-    properties = pd.read_csv(PROPERTIES_PATH, index_col=0)
+    if not args.skip_preflight:
+        preflight()
+
+    properties = pd.read_csv(PROPERTIES_PATH)
+    if "Unnamed: 0" in properties.columns:
+        properties = properties.drop(columns=["Unnamed: 0"])
     properties = properties.dropna(subset=["latitude", "longitude"]).reset_index(drop=True)
 
     output_path = OUTPUT_PATH

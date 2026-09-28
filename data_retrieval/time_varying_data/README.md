@@ -1,26 +1,28 @@
 # Time-varying SA2 data
 
 SA2-level features for Victoria, pulled from the ABS Data API (SDMX) and
-written as a long panel.
+written as a long panel under **`data/sa2_panel/`**.
 
 ## Run
 
+From the **repository root**:
+
 ```bash
-python fetch_time_varying_data.py
+python data_retrieval/time_varying_data/fetch_time_varying_data.py
 ```
 
-Writes one CSV per source plus `landing/sa2_panel.csv` (the master). Results are
-cached — delete the CSV or pass `refresh=True` to re-fetch. `landing/` is
-gitignored; everything is reproducible from this script.
+Writes one CSV per source plus `data/sa2_panel/sa2_panel.csv` (the master).
+Results are cached — delete the CSV or pass `refresh=True` to re-fetch.
+`data/sa2_panel/` is gitignored; everything is reproducible from this script.
 
 ```python
-from fetch_time_varying_data import load_panel
+from data_retrieval.time_varying_data.fetch_time_varying_data import load_panel
 panel = load_panel()
 ```
 
 ## Schema
 
-`landing/sa2_panel.csv` — one row per SA2 × year × feature.
+`data/sa2_panel/sa2_panel.csv` — one row per SA2 × year × feature.
 
 | column | notes |
 |---|---|

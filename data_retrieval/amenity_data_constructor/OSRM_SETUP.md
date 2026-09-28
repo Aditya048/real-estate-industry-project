@@ -1,98 +1,148 @@
-# One-time OSRM setup (car + foot routing)
+# Amenity route distances — setup
 
-## 1. Get an OSM extract covering Melbourne/Victoria
+Computes road/path distances from each listing to nearby schools, stations,
+stops, parks, and supermarkets via a **local OSRM** server.
 
-Geofabrik only publishes Australia at the whole-country level, which is a
-large file and slow to process on a laptop. Get a smaller, Victoria-sized
-extract instead from BBBike's custom extract service:
-https://extract.bbbike.org/  -> choose "Melbourne" as a preset, or draw a
-box covering all your suburbs -> request the .osm.pbf format -> you'll get
-an email with a download link once it's ready (usually a few minutes).
+Script: `add_amenity_distances.py`  
+Run from the **repository root**. Outputs land in `data/amenity_data/`.
 
-Save the file as `data/melbourne.osm.pbf`.
+---
 
-## 2. Build the CAR routing engine (port 5000)
+## Prerequisites checklist
 
-Run these four commands in your project folder (needs Docker Desktop installed
-and running):
+| Item | Where it goes | How to get it |
+|---|---|---|
+| Listings CSV | `data/properties_db/properties.csv` | Run the scrape orchestrator (or export from `properties.db`) |
+| Schools CSV | `data/amenity_data/dv346-schoollocations2023.csv` | Auto-downloaded on first run |
+| GTFS zip | `data/amenity_data/gtfs.zip` | Auto-downloaded on first run |
+| OSM extract | `data/osrm/melbourne.osm.pbf` | BBBike (below) — **not** committed |
+| OSRM car server | `localhost:5000` (or remapped) | Docker steps below |
+| OSRM foot server | `localhost:5001` (or remapped) | Docker steps below |
+
+Parks and supermarkets are pulled from Overpass at runtime (needs network).
+
+Do **not** commit GTFS, schools, OSM extracts, OSRM graphs, or amenity output CSVs.
+
+---
+
+## 1. Properties CSV
 
 ```bash
-docker run -t -v "${PWD}/data:/data" osrm/osrm-backend osrm-extract -p /opt/car.lua /data/melbourne.osm.pbf
-docker run -t -v "${PWD}/data:/data" osrm/osrm-backend osrm-partition /data/melbourne.osrm
-docker run -t -v "${PWD}/data:/data" osrm/osrm-backend osrm-customize /data/melbourne.osrm
-docker run -t -i -p 5000:5000 -v "${PWD}/data:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/melbourne.osrm
+# After scraping:
+ls data/properties_db/properties.csv
 ```
 
-Leave that last command running in its own terminal tab - it's your car
-routing server. Test it:
+Required columns: `id`, `url`, `latitude`, `longitude`, `suburb`.
+
+---
+
+## 2. OSM extract → `data/osrm/`
+
+Geofabrik’s Australia extract is huge. Prefer a Victoria/Melbourne extract from
+[BBBike](https://extract.bbbike.org/): choose Melbourne (or draw a box covering
+your suburbs) → `.osm.pbf` → download when emailed.
+
+```bash
+mkdir -p data/osrm
+# save the download as:
+#   data/osrm/melbourne.osm.pbf
+```
+
+---
+
+## 3. Build + run OSRM (car on :5000, foot on :5001)
+
+Needs [Docker Desktop](https://www.docker.com/products/docker-desktop/) running.
+All commands from the **repository root**.
+
+### Car profile
+
+```bash
+docker run -t -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-extract -p /opt/car.lua /data/melbourne.osm.pbf
+docker run -t -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-partition /data/melbourne.osrm
+docker run -t -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-customize /data/melbourne.osrm
+```
+
+### Foot profile (separate copy — extract mutates the graph for the profile)
+
+```bash
+cp data/osrm/melbourne.osm.pbf data/osrm/melbourne-foot.osm.pbf
+docker run -t -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-extract -p /opt/foot.lua /data/melbourne-foot.osm.pbf
+docker run -t -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-partition /data/melbourne-foot.osrm
+docker run -t -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-customize /data/melbourne-foot.osrm
+```
+
+### Start both servers (leave these running)
+
+Use `--max-table-size 10000` so batched `/table/` calls from the script succeed:
+
+```bash
+docker run -t -i -p 5000:5000 -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-routed --algorithm mld --max-table-size 10000 /data/melbourne.osrm
+
+docker run -t -i -p 5001:5000 -v "${PWD}/data/osrm:/data" osrm/osrm-backend \
+  osrm-routed --algorithm mld --max-table-size 10000 /data/melbourne-foot.osrm
+```
+
+**macOS note:** port **5000** is often taken by AirPlay Receiver (`ControlCenter`).
+If car routing fails or something non-OSRM answers on `:5000`, either disable
+AirPlay Receiver (System Settings → General → AirDrop & Handoff) or map a free
+host port, e.g. `-p 5002:5000`, and set in `add_amenity_distances.py`:
+
+```python
+OSRM_CAR_URL = "http://localhost:5002"
+```
+
+### Smoke-test OSRM
+
 ```bash
 curl "http://localhost:5000/route/v1/driving/144.9631,-37.8136;144.9670,-37.7999"
-```
-
-## 3. Build the FOOT (walking) routing engine (port 5001)
-
-The extract/partition/customize steps modify the .pbf in place with a
-profile-specific graph, so build the foot version into a SEPARATE copy of
-the file to avoid clobbering the car one:
-
-```bash
-cp data/melbourne.osm.pbf data/melbourne-foot.osm.pbf
-docker run -t -v "${PWD}/data:/data" osrm/osrm-backend osrm-extract -p /opt/foot.lua /data/melbourne-foot.osm.pbf
-docker run -t -v "${PWD}/data:/data" osrm/osrm-backend osrm-partition /data/melbourne-foot.osrm
-docker run -t -v "${PWD}/data:/data" osrm/osrm-backend osrm-customize /data/melbourne-foot.osrm
-docker run -t -i -p 5001:5000 -v "${PWD}/data:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/melbourne-foot.osrm
-```
-
-Note the `-p 5001:5000` - inside the container it's still port 5000, we're
-just mapping it to 5001 on your machine so it doesn't clash with the car
-server. Test it:
-```bash
 curl "http://localhost:5001/route/v1/foot/144.9631,-37.8136;144.9670,-37.7999"
 ```
 
-## 4. One setting to add now that the script batches requests
+Both should return JSON with a `"routes"` key.
 
-The Python script now sends up to ~40 properties x ~300 candidate
-destinations in a single request (rather than 1 property at a time), so
-raise OSRM's table-size limit when starting the routed servers - the
-default is usually fine, but it's worth being explicit:
+---
 
-```bash
-docker run -t -i -p 5000:5000 -v "${PWD}/data:/data" osrm/osrm-backend osrm-routed --algorithm mld --max-table-size 10000 /data/melbourne.osrm
-docker run -t -i -p 5001:5000 -v "${PWD}/data:/data" osrm/osrm-backend osrm-routed --algorithm mld --max-table-size 10000 /data/melbourne-foot.osrm
-```
+## 4. Run the Python script
 
-## 5. Leave both running while you run the Python script
-
-You'll have two terminal tabs occupied by the car and foot servers. Open a
-THIRD terminal tab to actually run `add_amenity_distances.py`.
-
-Both servers need to stay up for the whole run - if either one isn't
-responding, the Python script will fail on that amenity category.
-
-## 6. Test small before running the full dataset
-
-Before committing to the full 10,000-row run, smoke-test the whole
-pipeline (download -> load -> route -> output) against a small random
-sample:
+Keep both OSRM containers up. In a third terminal (repo root, venv active):
 
 ```bash
-python add_amenity_distances.py --sample 50
+# Always smoke-test first — writes a separate sample file
+python data_retrieval/amenity_data_constructor/add_amenity_distances.py --sample 50
+
+# Full run
+python data_retrieval/amenity_data_constructor/add_amenity_distances.py
 ```
 
-This writes to a separate `*_sample50.csv` file, so it can't clobber your
-real output. Check that file looks sane (plausible distances, no columns
-full of NaN) before running the full thing:
+Tuning:
 
 ```bash
-python add_amenity_distances.py
+python data_retrieval/amenity_data_constructor/add_amenity_distances.py \
+  --sample 200 --workers 12 --batch-size 60
 ```
 
-If you want to tune performance, `--workers` (thread pool size, default
-8) and `--batch-size` (properties per OSRM call, default 40) are both
-adjustable from the command line, e.g.:
+Output: `data/amenity_data/listings_with_amenity_distances.csv`  
+(or `*_sample{N}.csv` in sample mode).
 
-```bash
-python add_amenity_distances.py --sample 200 --workers 12 --batch-size 60
-```
+The script preflights the properties CSV and both OSRM endpoints before doing
+heavy work. Use `--skip-preflight` only if you know what you’re doing.
 
+---
+
+## Known limitations
+
+- **Count columns** (`school_count_*`, etc.) cap candidates per property at 50
+  for router load — dense areas may slightly undercount.
+- Schools / parks / supermarkets use **car** routing; tram / bus use **foot**.
+- OSM park/supermarket points are node or way centroids, not necessarily
+  entrances.
+- A Melbourne-sized extract may not cover regional VIC listings → those rows
+  can be NaN for route distances.

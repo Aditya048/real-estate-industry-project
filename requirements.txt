@@ -1,3 +1,5 @@
+# Full venv freeze for reproducibility. Core runtime: pandas, numpy, requests,
+# beautifulsoup4, lxml, geopandas, scikit-learn, matplotlib, jupyter.
 appnope==1.0.0
 asttokens==3.0.2
 beautifulsoup4==4.15.0

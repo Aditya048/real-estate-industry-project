@@ -14,7 +14,8 @@ import requests
 
 BASE = "https://data.api.abs.gov.au/rest"
 HEADERS = {"Accept": "application/vnd.sdmx.data+csv;labels=both"}
-OUT = Path(__file__).parent / "landing"
+# Repo-root relative — run from the project root so outputs land in data/
+OUT = Path("data/sa2_panel")
 OUT.mkdir(parents=True, exist_ok=True)
 
 DTYPES = {"sa2_code_2021": str}
