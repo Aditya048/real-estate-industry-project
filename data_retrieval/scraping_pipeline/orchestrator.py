@@ -1,5 +1,8 @@
 """
 Main orchestration script for scraping Victorian rental property listings.
+
+This shows how to use the PropertyDatabase class - it's deliberately simple
+so non-technical teammates can understand and modify it.
 """
 
 

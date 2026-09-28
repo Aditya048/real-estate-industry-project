@@ -2,6 +2,3 @@ data/properties_db
 data/geospatial_data
 __pycache__/
 *.log
-
-data_retrieval/time_varying_data/landing/*
-!data_retrieval/time_varying_data/landing/.gitkeep
