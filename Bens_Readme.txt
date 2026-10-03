@@ -1,4 +1,5 @@
 I NEEDED TO INSTALL openpyxl so u guys will need to run that too
+Will need to pip install xlrd too
 
 2 data sets must be downloaded manually as when trying to download them
 with a python script a 403 error willl be raised, any other attempts 
