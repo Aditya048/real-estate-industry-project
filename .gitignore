@@ -44,3 +44,7 @@ data_retrieval/time_varying_data/landing/*
 !data_retrieval/time_varying_data/landing/.gitkeep
 
 .DS_Store
+
+# Liveability transformed outputs (regenerable via notebook)
+modelling/liveability/transformed_data/*
+!modelling/liveability/transformed_data/.gitkeep
