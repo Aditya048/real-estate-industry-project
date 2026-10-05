@@ -42,3 +42,5 @@ data/preprocessed_data/*
 # Legacy ABS panel landing dir (outputs now under data/sa2_panel/)
 data_retrieval/time_varying_data/landing/*
 !data_retrieval/time_varying_data/landing/.gitkeep
+
+.DS_Store
