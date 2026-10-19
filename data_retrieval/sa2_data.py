@@ -25,7 +25,31 @@ SA2_URL = (
 
 
 def download_sa2(data_destination: Path = DATA_DESTINATION) -> Path:
-    """Download, extract, and rename SA2 shapefile layers. Returns the SA2 directory."""
+    """
+    Download, extract, and standardize ABS SA2 2021 shapefile digital boundaries.
+    
+    Fetches the SA2 2021 digital boundary shapefile from the ABS website as a ZIP
+    archive, extracts it to a destination directory, renames all extracted files
+    to a standard naming scheme (data.*), and cleans up the temporary ZIP file.
+    
+    Logs all operations to a log file specified by LOG_PATH. Creates the output
+    directory hierarchy if it does not already exist.
+    
+    Args:
+        data_destination: The base directory where the SA2 shapefile directory
+                          and temporary files will be stored (default DATA_DESTINATION).
+                          The function creates a subdirectory 'SA2_2021_AUST_GDA2020'
+                          within this path.
+    
+    Returns:
+        A Path object pointing to the SA2 directory containing the extracted and
+        renamed shapefile layers (e.g., data.shp, data.dbf, data.shx, data.prj, etc.).
+    
+    Raises:
+        requests.exceptions.RequestException: If the HTTP download fails.
+        zipfile.BadZipFile: If the downloaded file is not a valid ZIP archive.
+        IOError: If file operations (write, extract, rename) fail.
+    """
     logging.basicConfig(
         filename=LOG_PATH,
         level=logging.INFO,
