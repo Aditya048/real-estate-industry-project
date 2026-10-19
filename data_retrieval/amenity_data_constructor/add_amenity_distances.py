@@ -3,9 +3,9 @@ add_amenity_distances.py
 
 WHAT THIS SCRIPT DOES
 ----------------------
-Takes your rent.com.au listings dataset (data/properties_db/properties.csv)
-and, for every listing, computes ROUTE distance (actual road/path distance,
-not straight-line) in kilometres to the nearest:
+Takes  rent.com.au listings dataset (data/properties.csv) and, for
+every listing, computes ROUTE distance (actual road/path distance, not
+straight-line) in kilometres to the nearest:
 
   - school               -> CAR routing
   - train station        -> CAR routing   (metro + regional combined)
@@ -22,14 +22,39 @@ straight-line version, just with route distances instead:
 
   nearest_school_km, school_count_2km,
   nearest_train_station_km,
-  nearest_tram_stop_km,
-  nearest_bus_stop_km,
+  nearest_tram_stop_km, tram_stop_capped,
+  nearest_bus_stop_km, bus_stop_capped,
   nearest_park_km, park_count_1km,
   nearest_supermarket_km, supermarket_count_1km
 
 REQUIRES A LOCAL OSRM ROUTING SERVER - see OSRM_SETUP.md for one-time
 setup. Expects a car-routing OSRM server on http://localhost:5000 and a
 foot-routing OSRM server on http://localhost:5001.
+
+WALKING-DISTANCE SKIP OPTIMIZATION (tram/bus only)
+------------------------------------------------------
+A tram stop 15km away isn't a useful "walking distance" feature no matter
+how precisely we compute it - and since route distance can never be
+SHORTER than straight-line distance, a property whose straight-line
+distance to the nearest tram/bus stop already exceeds a threshold is
+guaranteed to have a true route distance beyond that threshold too. So for
+tram and bus specifically (both walking-routed), we do one cheap straight-
+line nearest-neighbour pass first, skip the OSRM call entirely for
+properties already beyond the threshold (TRAM_SKIP_THRESHOLD_KM=3.0,
+BUS_SKIP_THRESHOLD_KM=5.0), and record them as a capped "at least this
+far" value with a companion boolean column (tram_stop_capped /
+bus_stop_capped) rather than pretending it's an exact figure. This does
+NOT apply to school/train/park/supermarket - those are car-routed, where a
+5km distance is still a completely normal, informative feature rather than
+something to discard.
+
+We deliberately did NOT add a separate "distance from CBD" shortcut for
+this (an idea worth considering but not implementing): checking straight-
+line distance to the ACTUAL nearest tram/bus stop is strictly more
+accurate than a CBD-distance proxy (the tram network follows corridors,
+not a uniform circle around the CBD) and costs the same to compute, making
+a CBD-based heuristic redundant.
+
 
 PERFORMANCE DESIGN
 --------------------
@@ -53,6 +78,7 @@ calls is often slower than that per call. Three things fix this:
      UNIQUE rounded coordinate, then broadcast the result back to every
      listing at that address - this can meaningfully cut work before
      batching/parallelism even come into play, and it's essentially free.
+
 
 CORRECTNESS OF NEAREST-DISTANCE SEARCH
 -----------------------------------------
@@ -102,8 +128,8 @@ GTFS_ZIP_URL = "https://opendata.transport.vic.gov.au/dataset/3f4e292e-7f8a-4ffe
 MELBOURNE_BBOX = (-38.50, 144.50, -37.50, 145.60)  # (south, west, north, east), for OSM Overpass queries
 
 SCHOOL_RADIUS_KM = 2.0
-PARK_RADIUS_KM = 1.0
-SUPERMARKET_RADIUS_KM = 1.0
+PARK_RADIUS_KM = 2.0
+SUPERMARKET_RADIUS_KM = 4.0
 COUNT_MAX_CANDIDATES = 50  # per-property cap on candidates sent to the router when counting
 
 # --- OSRM local server settings ---
@@ -123,6 +149,19 @@ MAX_WORKERS = 8                 # concurrent requests to the local OSRM server
 
 # --- Coordinate deduplication ---
 COORD_ROUND_DECIMALS = 5  # ~1.1m precision - listings at the same building collapse to one lookup
+
+# --- Walking-distance skip thresholds ---
+# For WALKING-routed amenities only (tram, bus) - beyond these distances the
+# amenity isn't realistically walkable anyway, so there's no point spending
+# an OSRM call finding the exact route distance. Since route distance can
+# never be SHORTER than straight-line distance, a straight-line distance
+# already beyond the threshold guarantees the true route distance is too -
+# so we can skip the routing call entirely and safely report "at least this
+# far" instead. This does NOT apply to car-routed amenities (school, train,
+# park, supermarket) - a school 5km away by car is still a normal, useful
+# feature, not something to discard.
+TRAM_SKIP_THRESHOLD_KM = 3.0
+BUS_SKIP_THRESHOLD_KM = 5.0
 
 # =============================================================================
 
@@ -373,6 +412,51 @@ def nearest_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_ur
     return np.where(np.isfinite(best), best, np.nan)
 
 
+def nearest_route_km_capped(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_url: str, profile: str,
+                             skip_threshold_km: float, label: str = "", batch_size: int = BATCH_SIZE,
+                             max_workers: int = MAX_WORKERS) -> tuple[np.ndarray, np.ndarray]:
+    """
+    Like nearest_route_km, but first does ONE cheap straight-line nearest-
+    neighbour pass over ALL properties. Any property whose straight-line
+    distance already exceeds skip_threshold_km is guaranteed (route >=
+    straight-line, always) to have a true route distance beyond the
+    threshold too - so we skip the OSRM call for it entirely and report
+    the threshold itself as a capped value.
+
+    Returns (distances_km, capped_flags):
+      - distances_km: for capped properties, this is exactly
+        skip_threshold_km (an "at least this far" value, not the true
+        distance). For routed properties, this is the true computed route
+        distance (which occasionally can still land slightly above the
+        threshold - we don't clip these, since we actually computed them).
+      - capped_flags: True where the value is a capped "at least" value
+        rather than an exact computed route distance - keep this column so
+        downstream modelling can treat the two cases differently.
+    """
+    tree = build_tree(candidates)
+    property_coords = properties[["latitude", "longitude"]].values
+    n = len(properties)
+
+    dist_rad, _ = tree.query(np.radians(property_coords), k=1)
+    straight_km = dist_rad[:, 0] * EARTH_RADIUS_KM
+    capped = straight_km > skip_threshold_km
+
+    n_capped = int(capped.sum())
+    print(f"  [{label}] {n_capped:,}/{n:,} properties are >{skip_threshold_km}km away by straight-line - "
+          f"skipping route calculation for these, capping at {skip_threshold_km}km")
+
+    results = np.full(n, np.nan)
+    results[capped] = skip_threshold_km
+
+    if n_capped < n:
+        near_properties = properties[~capped].reset_index(drop=True)
+        near_results = nearest_route_km(near_properties, candidates, osrm_url, profile, label=label,
+                                         batch_size=batch_size, max_workers=max_workers)
+        results[~capped] = near_results
+
+    return results, capped
+
+
 def count_within_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_url: str, profile: str,
                            radius_km: float, max_candidates: int = COUNT_MAX_CANDIDATES, label: str = "",
                            batch_size: int = BATCH_SIZE, max_workers: int = MAX_WORKERS) -> np.ndarray:
@@ -443,11 +527,15 @@ def count_within_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, os
 # Coordinate deduplication wrapper
 # -----------------------------------------------------------------------------
 
-def dedupe_and_compute(properties: pd.DataFrame, compute_fn, *args, **kwargs) -> np.ndarray:
+def dedupe_and_compute(properties: pd.DataFrame, compute_fn, *args, **kwargs):
     """
     Many listings share a building's coordinates (different units, same
     lat/long). Round coordinates, compute once per UNIQUE location, then
     broadcast back to every original row - avoids redundant route lookups.
+
+    Works with compute_fn returning either a single array, or a tuple of
+    arrays (e.g. nearest_route_km_capped's (distances, capped_flags)) -
+    each array in the tuple gets broadcast back the same way.
     """
     rounded = properties[["latitude", "longitude"]].round(COORD_ROUND_DECIMALS)
     unique_df = rounded.drop_duplicates().reset_index(drop=True)
@@ -458,47 +546,14 @@ def dedupe_and_compute(properties: pd.DataFrame, compute_fn, *args, **kwargs) ->
     inverse = np.array([key_to_pos[(lat, lon)] for lat, lon in zip(rounded["latitude"], rounded["longitude"])])
 
     values = compute_fn(unique_df, *args, **kwargs)
+    if isinstance(values, tuple):
+        return tuple(np.asarray(v)[inverse] for v in values)
     return np.asarray(values)[inverse]
 
 
 # -----------------------------------------------------------------------------
 # Main
 # -----------------------------------------------------------------------------
-
-def _osrm_is_up(base_url: str, profile: str) -> bool:
-    """Cheap ping: ask OSRM to route a tiny CBD segment. False if not an OSRM server."""
-    # Flinders St -> nearby point (lon,lat)
-    url = f"{base_url}/route/v1/{profile}/144.9670,-37.8183;144.9700,-37.8150"
-    try:
-        resp = requests.get(url, timeout=5)
-        return resp.ok and "routes" in resp.json()
-    except (requests.exceptions.RequestException, ValueError, KeyError):
-        return False
-
-
-def preflight() -> None:
-    """Fail fast with actionable messages instead of producing all-NaN columns."""
-    props = Path(PROPERTIES_PATH)
-    if not props.exists():
-        raise SystemExit(
-            f"Missing properties CSV at {PROPERTIES_PATH}.\n"
-            "Run the scrape orchestrator first (writes data/properties_db/properties.csv),\n"
-            "or copy/export your listings CSV there. See README.md."
-        )
-
-    if not _osrm_is_up(OSRM_CAR_URL, "driving"):
-        raise SystemExit(
-            f"Car OSRM not responding at {OSRM_CAR_URL}.\n"
-            "Follow data_retrieval/amenity_data_constructor/OSRM_SETUP.md "
-            "(extract under data/osrm/, then start osrm-routed). "
-            "On macOS, port 5000 is often AirPlay — use another host port if needed."
-        )
-    if not _osrm_is_up(OSRM_FOOT_URL, "foot"):
-        raise SystemExit(
-            f"Foot OSRM not responding at {OSRM_FOOT_URL}.\n"
-            "Start the foot profile server (see OSRM_SETUP.md)."
-        )
-
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -508,16 +563,14 @@ def main():
                               "*_sample{N}.csv file so it can't overwrite your real results.")
     parser.add_argument("--workers", type=int, default=MAX_WORKERS, help="Thread pool size for OSRM requests")
     parser.add_argument("--batch-size", type=int, default=BATCH_SIZE, help="Properties per OSRM /table/ call")
-    parser.add_argument("--skip-preflight", action="store_true",
-                         help="Skip OSRM/CSV checks (not recommended).")
     args = parser.parse_args()
 
-    if not args.skip_preflight:
-        preflight()
-
     properties = pd.read_csv(PROPERTIES_PATH)
-    if "Unnamed: 0" in properties.columns:
-        properties = properties.drop(columns=["Unnamed: 0"])
+    if properties.columns[0].startswith("Unnamed"):
+        # Some exports have a stray leading index column with no header
+        # name (pandas labels it "Unnamed: 0") - drop it if present, but
+        # don't assume it's there, since not every properties.csv has one.
+        properties = properties.drop(columns=properties.columns[0])
     properties = properties.dropna(subset=["latitude", "longitude"]).reset_index(drop=True)
 
     output_path = OUTPUT_PATH
@@ -582,12 +635,14 @@ def main():
         label="supermarket (count)", **common_kwargs
     )
 
-    print("\nComputing WALKING route distances...")
-    result["nearest_tram_stop_km"] = dedupe_and_compute(
-        properties, nearest_route_km, tram_stops, OSRM_FOOT_URL, "foot", label="tram stop", **common_kwargs
+    print("\nComputing WALKING route distances (with straight-line pre-filter skip)...")
+    result["nearest_tram_stop_km"], result["tram_stop_capped"] = dedupe_and_compute(
+        properties, nearest_route_km_capped, tram_stops, OSRM_FOOT_URL, "foot", TRAM_SKIP_THRESHOLD_KM,
+        label="tram stop", **common_kwargs
     )
-    result["nearest_bus_stop_km"] = dedupe_and_compute(
-        properties, nearest_route_km, bus_stops, OSRM_FOOT_URL, "foot", label="bus stop", **common_kwargs
+    result["nearest_bus_stop_km"], result["bus_stop_capped"] = dedupe_and_compute(
+        properties, nearest_route_km_capped, bus_stops, OSRM_FOOT_URL, "foot", BUS_SKIP_THRESHOLD_KM,
+        label="bus stop", **common_kwargs
     )
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
