@@ -1,17 +1,18 @@
 # MAST30034 — Real Estate Industry Project (Group 4)
 
-## Summary of outcomes (SEE HERE FOR MODELLING/ANALYSIS)
-
-The notebooks relevant to the clients and stakeholders are:
-
-- `modelling/rfr.ipynb` (contains model training and projected rent analysis)
-- `modelling/liveability/liveability_exploration.ipynb`
-- `modelling/liveability/rent_location_exploration.ipynb`
+> **Summary Notebooks**
+>
+> These **three** notebooks are the project’s **summary of outcomes**. They are the  
+> modelling / analysis deliverables for clients and stakeholders.
+>
+> 1. [`modelling/rfr.ipynb`](modelling/rfr.ipynb) : model training and projected rent analysis
+> 2. [`modelling/liveability/liveability_exploration.ipynb`](modelling/liveability/liveability_exploration.ipynb) : amenity access vs rent / CBD tradeoff
+> 3. [`modelling/liveability/rent_location_exploration.ipynb`](modelling/liveability/rent_location_exploration.ipynb) : rent patterns by SA2 / suburb
 
 Victorian rental listings pipeline: scrape rent.com.au → enrich with ABS geospatial /
 demographic data (and optional amenity route distances) → clean for modelling.
 
-**Run all Python commands from the repository root** unless a notebook says otherwise.
+**Run all Python commands from the repository root**
 
 ---
 
