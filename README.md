@@ -1,5 +1,11 @@
 # MAST30034 — Real Estate Industry Project (Group 4)
 
+## Summary of outcomes
+The notebooks relevant to the clients and stakeholders are:
+- `modellings/rfr.ipynb` (contains model training and projected rent analysis)
+- `modelling/liveability/liveability_exploration.ipynb`
+- `modelling/liveability/rent_location_exploration.ipynb`
+
 Victorian rental listings pipeline: scrape rent.com.au → enrich with ABS geospatial /
 demographic data (and optional amenity route distances) → clean for modelling.
 
