@@ -17,15 +17,14 @@ logger = logging.getLogger(__name__)
 
 
 class WebScraper:
-    """Web scraper with SQLite storage and exponential backoff"""
+    """Web scraper with SQLite storage and retry/backoff."""
     
     def __init__(self, db_path: str = 'webpages.db', timeout: int = 10):
-        """
-        Initialize the scraper
-        
+        """Initialize the scraper session and database.
+
         Args:
-            db_path: Path to SQLite database
-            timeout: Request timeout in seconds
+            db_path: Path to the SQLite database.
+            timeout: Request timeout in seconds.
         """
         self.db_path = db_path
         self.timeout = timeout
@@ -33,7 +32,7 @@ class WebScraper:
         self.setup_database()
     
     def _create_session(self) -> requests.Session:
-        """Create a requests session with retry strategy"""
+        """Create a requests session with retry strategy."""
         session = requests.Session()
         
         # Configure retry strategy with exponential backoff
@@ -56,7 +55,7 @@ class WebScraper:
         return session
     
     def setup_database(self) -> None:
-        """Create SQLite database and table if they don't exist"""
+        """Create the pages table if it does not exist."""
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
@@ -80,15 +79,14 @@ class WebScraper:
             raise
     
     def fetch_page(self, url: str, max_retries: int = 3) -> Optional[tuple]:
-        """
-        Fetch a webpage with exponential backoff for rate limiting
-        
+        """Fetch a webpage with retries for rate limits and transient errors.
+
         Args:
-            url: URL to fetch
-            max_retries: Maximum number of retries with exponential backoff
-            
+            url: URL to fetch.
+            max_retries: Maximum retry attempts.
+
         Returns:
-            Tuple of (html_content, status_code) or None if failed
+            (html_content, status_code), or None if the fetch failed.
         """
         retry_count = 0
         backoff_time = 1  # Start with 1 second
@@ -142,17 +140,16 @@ class WebScraper:
         return None
     
     def store_page(self, url: str, html: str, status_code: int, error_message: str = None) -> bool:
-        """
-        Store fetched page in database
-        
+        """Store a fetched page (or error) in the database.
+
         Args:
-            url: The URL
-            html: HTML content
-            status_code: HTTP status code
-            error_message: Error message if fetch failed
-            
+            url: Page URL.
+            html: HTML content, or None on failure.
+            status_code: HTTP status code, or None on failure.
+            error_message: Optional error text.
+
         Returns:
-            True if successful, False otherwise
+            True on success, False otherwise.
         """
         try:
             conn = sqlite3.connect(self.db_path)
@@ -174,12 +171,11 @@ class WebScraper:
             return False
     
     def scrape_urls(self, url_list: List[str], delay_between_requests: float = 1.0) -> None:
-        """
-        Scrape a list of URLs and store in database
-        
+        """Fetch and store each URL with a delay between requests.
+
         Args:
-            url_list: List of URLs to scrape
-            delay_between_requests: Delay in seconds between requests (respect robots.txt)
+            url_list: URLs to scrape.
+            delay_between_requests: Seconds to sleep between requests.
         """
         total_urls = len(url_list)
         successful = 0
@@ -223,14 +219,13 @@ class WebScraper:
         logger.info(f"Scraping complete. Successful: {successful}, Failed: {failed}")
     
     def retrieve_page(self, url: str) -> Optional[str]:
-        """
-        Retrieve stored HTML for a URL from database
-        
+        """Return stored HTML for a URL, or None if missing.
+
         Args:
-            url: The URL to retrieve
-            
+            url: URL to look up.
+
         Returns:
-            HTML content or None if not found
+            HTML string, or None if not found.
         """
         try:
             conn = sqlite3.connect(self.db_path)
@@ -251,7 +246,7 @@ class WebScraper:
             return None
     
     def get_stats(self) -> dict:
-        """Get statistics about stored pages"""
+        """Return counts of total, successful, and failed stored pages."""
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()

@@ -1,10 +1,7 @@
 # Import the 5 yearly household forecast data by SA2 area
 
-import geopandas as gpd
 from pathlib import Path
 import pandas as pd
-import requests
-import openpyxl
 
 # Set up paths
 

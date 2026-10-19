@@ -1,18 +1,17 @@
 import geopandas as gpd
 from shapely.geometry import Point
+
+
 def find_SA2(data, latitude, longitude):
-    """
-    This function takes in latitude and longitude coordinates 
-    and outputs the Statistical Area Level 2 (SA2) that contains 
-    the point.
+    """Return the SA2 name containing the given coordinates.
 
     Args:
-        data: The geospatial data containing the SA2 polygons
-        latitude: Latitude coordinate as a decimal
-        longitude: Longitidue coordinate as a decimal
+        data: GeoDataFrame of SA2 polygons.
+        latitude: Latitude as a decimal.
+        longitude: Longitude as a decimal.
 
     Returns:
-        String containing name of SA2 area according to ABS.
+        SA2 name string, or None if no match.
     """
     # Create point from longitude and latitude
     point = gpd.GeoDataFrame(

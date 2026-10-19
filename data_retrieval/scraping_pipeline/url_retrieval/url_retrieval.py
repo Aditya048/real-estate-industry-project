@@ -57,17 +57,21 @@ TOTAL_COUNT_RE = re.compile(r"of\s+([\d,]+)\s+rental propert")
 
 @dataclass
 class SuburbQuery:
+    """Suburb search parameters for rent.com.au listing pages."""
+
     suburb: str
     postcode: str
     state: str = "vic"
 
     @property
     def slug(self) -> str:
+        """URL slug for this suburb, postcode, and state."""
         # "Wyndham Vale" -> "wyndham-vale"
         slug_suburb = re.sub(r"[^a-z0-9]+", "-", self.suburb.strip().lower()).strip("-")
         return f"{slug_suburb}-{self.state.lower()}-{self.postcode}"
 
     def page_url(self, page: int) -> str:
+        """Build the suburb search URL for a 1-based page number."""
         if page <= 1:
             path = f"{BASE_URL}/properties/{self.slug}"
         else:
@@ -76,12 +80,14 @@ class SuburbQuery:
 
 
 def _fetch(url: str) -> str:
-    resp = requests.get(url, headers=HEADERS, timeout=15)
-    resp.raise_for_status()
-    return resp.text
+    """Fetch a page and return its HTML body."""
+    response = requests.get(url, headers=HEADERS, timeout=15)
+    response.raise_for_status()
+    return response.text
 
 
 def _extract_property_urls(html: str) -> list[str]:
+    """Extract unique listing URLs from a suburb search page."""
     soup = BeautifulSoup(html, "html.parser")
 
     # Primary approach: find real <a> tags whose href points to a listing.
@@ -111,6 +117,7 @@ def _extract_property_urls(html: str) -> list[str]:
 
 
 def _extract_total_pages(html: str) -> int:
+    """Infer total result pages from the 'Showing 1 - N of M' text."""
     match = TOTAL_COUNT_RE.search(html)
     if not match:
         return 1
@@ -119,9 +126,16 @@ def _extract_total_pages(html: str) -> int:
 
 
 def get_listing_urls(suburb: str, postcode: str, state: str = "vic", verbose: bool = True) -> list[str]:
-    """
-    Return a list of every current rental listing URL for the given
-    suburb/postcode on rent.com.au.
+    """Return every current rental listing URL for a suburb and postcode.
+
+    Args:
+        suburb: Suburb name.
+        postcode: Postcode.
+        state: State abbreviation (default "vic").
+        verbose: If True, print per-page progress.
+
+    Returns:
+        Deduplicated list of listing URLs.
     """
     query = SuburbQuery(suburb=suburb, postcode=str(postcode), state=state)
 
@@ -160,6 +174,7 @@ def get_listing_urls(suburb: str, postcode: str, state: str = "vic", verbose: bo
 
 
 def main():
+    """CLI entry point for fetching listing URLs for one suburb."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("suburb", help='Suburb name, e.g. "Wyndham Vale"')
     parser.add_argument("postcode", help="Postcode, e.g. 3024")

@@ -1,9 +1,8 @@
 # Download and clean the ABS dwelling stock dataset for SA2 zones
-import geopandas as gpd
+
 from pathlib import Path
 import pandas as pd
 import requests
-import openpyxl
 
 # Set up paths
 

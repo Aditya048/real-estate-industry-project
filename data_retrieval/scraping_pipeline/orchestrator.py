@@ -29,6 +29,11 @@ LOG_PATH = "data_retrieval/scraping_pipeline/scraper.log"
 
 
 def main(limit: int | None = None) -> None:
+    """Scrape Victorian rental listings into SQLite and export a CSV.
+
+    Args:
+        limit: If set, only process the first N suburbs.
+    """
     Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
 
     logging.basicConfig(

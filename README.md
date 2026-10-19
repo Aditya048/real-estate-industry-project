@@ -1,7 +1,9 @@
 # MAST30034 — Real Estate Industry Project (Group 4)
 
-## Summary of outcomes
+## Summary of outcomes (SEE HERE FOR MODELLING/ANALYSIS)
+
 The notebooks relevant to the clients and stakeholders are:
+
 - `modellings/rfr.ipynb` (contains model training and projected rent analysis)
 - `modelling/liveability/liveability_exploration.ipynb`
 - `modelling/liveability/rent_location_exploration.ipynb`
@@ -109,8 +111,8 @@ CSVs to `data/forecasting/`.
 
 - `venv/`, `__pycache__/`, `*.log`
 - Anything under `data/properties_db/`, `data/geospatial_data/`, `data/sa2_panel/`,
-  `data/amenity_data/`, `data/osrm/`, `data/forecasting/`, `data/preprocessed_data/`
-  except `.gitkeep`
+`data/amenity_data/`, `data/osrm/`, `data/forecasting/`, `data/preprocessed_data/`
+except `.gitkeep`
 - `*.osm.pbf`, `*.osrm*`
 
 ---

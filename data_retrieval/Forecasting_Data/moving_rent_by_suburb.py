@@ -1,10 +1,8 @@
 # Download and clean the moving annual rent data by suburb from 2000 to 2025
 
-import geopandas as gpd
 from pathlib import Path
 import pandas as pd
 import requests
-import openpyxl
 
 # Set up paths
 

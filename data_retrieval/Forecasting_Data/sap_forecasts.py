@@ -1,17 +1,14 @@
 # Read and clean the 5 yearly population projections by SA2 district
 
-import geopandas as gpd
 from pathlib import Path
 import pandas as pd
-import requests
-import openpyxl
 
 # Set up paths
 
 current_path = Path.cwd()
-root_path = current_path.parent.parent
+path_root = current_path.parent.parent
 
-data_path = root_path / "data" / "forecasting"
+data_path = path_root / "data" / "forecasting"
 file_path = data_path / "SAP_Forecast_2136.xlsx"
 
 # Create the data folder if it does not exist
@@ -41,14 +38,14 @@ uncleaned_persons = pd.read_excel(
 # Define the cleaning function
 
 def clean_age_data(data, sex):
-    """
-    Cleans the data by fixing age group names, changing the data type of 
-    the population column and adding a 'sex' column for preprocessing
-    per sex.
+    """Clean age-group projection rows and tag them with a sex label.
 
     Args:
-    data: DataFrame
-    sex: String denoting the sex (e.g "Male")
+        data: Raw Excel sheet as a DataFrame.
+        sex: Sex label to attach (e.g. "Males").
+
+    Returns:
+        Cleaned long-format DataFrame for that sex.
     """
     # Get the years and age groups from the header rows
     years = data.iloc[8].copy()

@@ -83,6 +83,7 @@ def export_zones(zones: gpd.GeoDataFrame, output_dir: Path) -> Path:
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for input and output paths."""
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument(
         "--input",
@@ -100,6 +101,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """Load national SA2 zones, filter to Victoria, and write the shapefile."""
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     args = parse_args()
 

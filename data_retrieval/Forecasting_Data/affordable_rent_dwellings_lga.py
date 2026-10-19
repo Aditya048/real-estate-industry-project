@@ -1,10 +1,8 @@
 # Download and clean the affordable rental dwellings dataset for LGAs
 
-import geopandas as gpd
 from pathlib import Path
 import pandas as pd
 import requests
-import openpyxl
 
 # Set up paths
 

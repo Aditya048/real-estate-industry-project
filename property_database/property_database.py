@@ -37,26 +37,20 @@ PROPERTY_DETAILS_SCHEMA = {
 
 
 class PropertyDatabase:
-    """
-    Simple interface for storing parsed property listings in SQLite.
-    
-    Handles all database setup, encoding, and validation automatically.
-    Non-technical users just need to: instantiate once, call save() for each listing.
-    """
+    """SQLite store for parsed property listings."""
     
     def __init__(self, db_path: str = 'data/properties_db/properties.db'):
-        """
-        Initialize the property database
-        
+        """Create or open the property database.
+
         Args:
-            db_path: Path to SQLite database file
+            db_path: Path to the SQLite database file.
         """
         self.db_path = db_path
         self._setup_table()
         logger.info(f"PropertyDatabase initialized at {db_path}")
     
     def _setup_table(self) -> None:
-        """Create the property_details table if it doesn't exist"""
+        """Create the property_details table if it does not exist."""
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
@@ -80,7 +74,7 @@ class PropertyDatabase:
     
     @staticmethod
     def _encode_value(value):
-        """Convert a parsed value into something SQLite can store"""
+        """Convert a parsed value into a SQLite-storable form."""
         if isinstance(value, dict):
             return json.dumps(value, sort_keys=True)
         if isinstance(value, bool):
@@ -89,7 +83,7 @@ class PropertyDatabase:
     
     @staticmethod
     def _sqlite_type(value) -> str:
-        """Best-guess SQLite type for a value not covered by the schema"""
+        """Infer a SQLite type for a value outside the fixed schema."""
         if isinstance(value, bool) or isinstance(value, int):
             return 'INTEGER'
         if isinstance(value, float):
@@ -97,20 +91,13 @@ class PropertyDatabase:
         return 'TEXT'
     
     def save(self, listing_data: Optional[dict]) -> bool:
-        """
-        Save a parsed listing to the database.
-        
-        This is the main method your teammates will use. It handles:
-        - Validation (checks for required id field)
-        - Encoding (converts bools to ints, dicts to JSON)
-        - Schema evolution (auto-adds new columns if needed)
-        - Error handling (logs errors, doesn't crash)
-        
+        """Save a parsed listing, adding columns if needed.
+
         Args:
-            listing_data: Dictionary returned by parse_html()
-            
+            listing_data: Dictionary from parse_html().
+
         Returns:
-            True if successful, False otherwise
+            True on success, False otherwise.
         """
         if not listing_data or not listing_data.get('id'):
             logger.warning("Skipping listing with no id")
@@ -160,7 +147,7 @@ class PropertyDatabase:
             return False
     
     def get_count(self) -> int:
-        """Get total number of listings stored"""
+        """Return the number of stored listings."""
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
@@ -173,7 +160,14 @@ class PropertyDatabase:
             return 0
 
     def export_csv(self, csv_path: str = 'data/properties_db/properties.csv') -> str:
-        """Export property_details to CSV for downstream notebooks/scripts."""
+        """Export property_details to a CSV file.
+
+        Args:
+            csv_path: Destination CSV path.
+
+        Returns:
+            Path string of the written file.
+        """
         import csv
         from pathlib import Path
 

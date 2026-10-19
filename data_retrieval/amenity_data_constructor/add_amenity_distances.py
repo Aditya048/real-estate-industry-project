@@ -167,25 +167,11 @@ BUS_SKIP_THRESHOLD_KM = 5.0
 # Download + load amenity data
 
 def download_if_missing(url: str, dest_path: str) -> None:
-    """
-    Download a file from a URL if it does not already exist locally.
-    
-    If the destination file exists, this function returns early without
-    downloading. Otherwise, it downloads the file with a progress indicator,
-    writes it to a temporary .part file during download, and renames it to
-    the final destination path upon successful completion. Parent directories
-    are created as needed.
-    
+    """Download a file from a URL if it is not already present locally.
+
     Args:
-        url: The URL to download from.
-        dest_path: The local file path where the downloaded file should be saved.
-    
-    Returns:
-        None
-    
-    Raises:
-        requests.exceptions.RequestException: If the HTTP request fails.
-        IOError: If file operations fail.
+        url: Source URL.
+        dest_path: Local destination path.
     """
     dest = Path(dest_path)
     if dest.exists():
@@ -194,13 +180,13 @@ def download_if_missing(url: str, dest_path: str) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     print(f"  Downloading {url} -> {dest_path} ...")
     headers = {"User-Agent": "MAST30034-real-estate-project/1.0"}
-    with requests.get(url, headers=headers, stream=True, timeout=120) as resp:
-        resp.raise_for_status()
-        total_bytes = int(resp.headers.get("content-length", 0))
+    with requests.get(url, headers=headers, stream=True, timeout=120) as response:
+        response.raise_for_status()
+        total_bytes = int(response.headers.get("content-length", 0))
         downloaded = 0
         tmp_path = dest.with_suffix(dest.suffix + ".part")
         with open(tmp_path, "wb") as f:
-            for chunk in resp.iter_content(chunk_size=1024 * 1024):
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
                 f.write(chunk)
                 downloaded += len(chunk)
                 if total_bytes:
@@ -212,19 +198,13 @@ def download_if_missing(url: str, dest_path: str) -> None:
 
 
 def load_schools_csv(path: str) -> pd.DataFrame:
-    """
-    Load school location data from a CSV file and clean the coordinates.
-    
-    Reads a CSV file encoded in cp1252, renames X and Y columns to longitude
-    and latitude, converts them to numeric types, and filters out rows with
-    missing or zero-valued coordinates.
-    
+    """Load school coordinates from a CSV and drop invalid rows.
+
     Args:
-        path: Path to the schools CSV file.
-    
+        path: Path to the schools CSV.
+
     Returns:
-        A DataFrame with columns ['latitude', 'longitude'] containing valid
-        school coordinate pairs.
+        DataFrame with latitude and longitude columns.
     """
     df = pd.read_csv(path, encoding="cp1252")
     df = df.rename(columns={"X": "longitude", "Y": "latitude"})
@@ -236,29 +216,15 @@ def load_schools_csv(path: str) -> pd.DataFrame:
 
 
 def load_gtfs_stops(gtfs_zip_path: str, mode_folder: str, stations_only: bool = True) -> pd.DataFrame:
-    """
-    Load transit stop coordinates from a GTFS ZIP file.
-    
-    Extracts stop data from a GTFS (General Transit Feed Specification) archive,
-    which may contain stops.txt directly or nested within mode-specific subdirectory
-    ZIPs. Renames stop_lat and stop_lon columns to latitude and longitude, filters
-    out missing coordinates, and optionally extracts only parent/station records
-    (location_type == 1) if available.
-    
+    """Load transit stop coordinates from a GTFS zip archive.
+
     Args:
-        gtfs_zip_path: Path to the GTFS ZIP file.
-        mode_folder: The mode folder name within the ZIP (e.g., "2" for metro trains,
-                     "1" for regional trains, "3" for trams, "4" for buses).
-        stations_only: If True and a location_type column exists, extract only
-                       records where location_type == 1 (parent stations). Defaults
-                       to True.
-    
+        gtfs_zip_path: Path to the GTFS zip file.
+        mode_folder: Mode folder name inside the zip (e.g. "2" for metro).
+        stations_only: If True, keep parent/station rows when location_type exists.
+
     Returns:
-        A DataFrame with columns ['latitude', 'longitude'] containing valid
-        transit stop coordinate pairs.
-    
-    Raises:
-        FileNotFoundError: If stops.txt cannot be found for the specified mode.
+        DataFrame with latitude and longitude columns.
     """
     import zipfile
 
@@ -298,26 +264,14 @@ OVERPASS_MAX_RETRIES = 3
 
 
 def fetch_osm_points(tag_filter: str, bbox: tuple[float, float, float, float]) -> pd.DataFrame:
-    """
-    Query OpenStreetMap (via Overpass API) for points matching a tag filter
-    within a bounding box.
-    
-    Constructs and sends an Overpass QL query for nodes and ways matching
-    the specified tag filter within the given bbox. Retries across multiple
-    Overpass endpoints with exponential backoff if a request fails. Extracts
-    center coordinates from the response and returns them as a DataFrame.
-    
+    """Query Overpass for OSM points matching a tag filter in a bbox.
+
     Args:
-        tag_filter: An OSM tag filter string (e.g., '["leisure"="park"]' or
-                    '["shop"="supermarket"]').
-        bbox: A tuple of (south, west, north, east) latitude/longitude bounds.
-    
+        tag_filter: OSM tag filter string (e.g. '["leisure"="park"]').
+        bbox: (south, west, north, east) bounds.
+
     Returns:
-        A DataFrame with columns ['latitude', 'longitude'] containing all
-        matched point coordinates.
-    
-    Raises:
-        RuntimeError: If all retry attempts fail.
+        DataFrame with latitude and longitude columns.
     """
     south, west, north, east = bbox
     query = f"""
@@ -334,9 +288,9 @@ def fetch_osm_points(tag_filter: str, bbox: tuple[float, float, float, float]) -
         endpoint = OVERPASS_ENDPOINTS[attempt % len(OVERPASS_ENDPOINTS)]
         try:
             print(f"  Querying {endpoint} (attempt {attempt + 1}/{OVERPASS_MAX_RETRIES})...")
-            resp = requests.post(endpoint, data={"data": query}, headers=headers, timeout=OVERPASS_HTTP_TIMEOUT_SECONDS)
-            resp.raise_for_status()
-            elements = resp.json()["elements"]
+            response = requests.post(endpoint, data={"data": query}, headers=headers, timeout=OVERPASS_HTTP_TIMEOUT_SECONDS)
+            response.raise_for_status()
+            elements = response.json()["elements"]
             break
         except (requests.exceptions.RequestException, KeyError, ValueError) as e:
             last_error = e
@@ -360,18 +314,13 @@ def fetch_osm_points(tag_filter: str, bbox: tuple[float, float, float, float]) -
 # -----------------------------------------------------------------------
 
 def build_tree(df: pd.DataFrame) -> BallTree:
-    """
-    Build a BallTree spatial index from latitude and longitude coordinates.
-    
-    Converts DataFrame latitude and longitude columns to radians and constructs
-    a BallTree using the haversine (great-circle distance) metric. The resulting
-    tree supports efficient nearest-neighbor queries on a sphere.
-    
+    """Build a haversine BallTree from latitude/longitude columns.
+
     Args:
-        df: A DataFrame with 'latitude' and 'longitude' columns.
-    
+        df: DataFrame with latitude and longitude columns.
+
     Returns:
-        A BallTree object configured for haversine distance queries.
+        BallTree for nearest-neighbour queries.
     """
     coords_rad = np.radians(df[["latitude", "longitude"]].values)
     return BallTree(coords_rad, metric="haversine")
@@ -382,26 +331,16 @@ def build_tree(df: pd.DataFrame) -> BallTree:
 # -----------------------------------------------------------------------
 
 def osrm_table_km_batch(base_url: str, profile: str, source_latlons: np.ndarray, dest_latlons: np.ndarray) -> np.ndarray:
-    """
-    Query the OSRM /table/ endpoint for route distances between multiple sources
-    and multiple destinations in a single HTTP request.
-    
-    Constructs a single many-to-many routing request covering all source-destination
-    pairs for the given profile (e.g., "driving" or "foot"). Returns an (S x D)
-    matrix of route distances in kilometers, with NaN for any pairs that cannot
-    be routed or if the entire request fails.
-    
+    """Query OSRM /table/ for route distances between sources and destinations.
+
     Args:
-        base_url: The base URL of the OSRM server (e.g., "http://localhost:5000").
-        profile: The routing profile (e.g., "driving", "foot").
-        source_latlons: An (S x 2) NumPy array of [latitude, longitude] source
-                        coordinates.
-        dest_latlons: A (D x 2) NumPy array of [latitude, longitude] destination
-                      coordinates.
-    
+        base_url: OSRM server base URL.
+        profile: Routing profile (e.g. "driving", "foot").
+        source_latlons: (S x 2) array of [lat, lon] sources.
+        dest_latlons: (D x 2) array of [lat, lon] destinations.
+
     Returns:
-        An (S x D) NumPy array of route distances in kilometers. NaN values
-        indicate pairs that could not be routed or a request failure.
+        (S x D) array of distances in km, with NaN where routing fails.
     """
     s = len(source_latlons)
     d = len(dest_latlons)
@@ -415,9 +354,9 @@ def osrm_table_km_batch(base_url: str, profile: str, source_latlons: np.ndarray,
     url = f"{base_url}/table/v1/{profile}/{coords_str}?sources={sources_str}&destinations={dest_str}&annotations=distance"
 
     try:
-        resp = requests.get(url, timeout=OSRM_REQUEST_TIMEOUT_SECONDS)
-        resp.raise_for_status()
-        distances_m = resp.json()["distances"]  # S x D
+        response = requests.get(url, timeout=OSRM_REQUEST_TIMEOUT_SECONDS)
+        response.raise_for_status()
+        distances_m = response.json()["distances"]  # S x D
     except (requests.exceptions.RequestException, KeyError, IndexError, ValueError):
         return np.full((s, d), np.nan)
 
@@ -425,23 +364,14 @@ def osrm_table_km_batch(base_url: str, profile: str, source_latlons: np.ndarray,
 
 
 def _split_batch_if_too_wide(batch_idx: list[int], candidate_lookup) -> list[int] | None:
-    """
-    Check if a batch will exceed the maximum number of destinations when sent
-    to OSRM, and return a smaller batch to retry with if necessary.
-    
-    Examines the union of all candidates for properties in the batch. If the
-    union exceeds MAX_DESTINATIONS_PER_BATCH and the batch has more than one
-    property, returns the first half of the batch for retry; otherwise returns
-    None to indicate the batch is acceptable as-is.
-    
+    """Return a smaller batch if the candidate union exceeds the OSRM limit.
+
     Args:
-        batch_idx: A list of property indices to check.
-        candidate_lookup: A callable that takes a property index and returns
-                          an iterable of candidate indices for that property.
-    
+        batch_idx: Property indices in the batch.
+        candidate_lookup: Callable mapping a property index to candidate indices.
+
     Returns:
-        A smaller batch (first half of batch_idx) if splitting is needed, or
-        None if the batch is acceptable.
+        First half of batch_idx if a split is needed, otherwise None.
     """
     union = set()
     for i in batch_idx:
@@ -453,33 +383,19 @@ def _split_batch_if_too_wide(batch_idx: list[int], candidate_lookup) -> list[int
 
 def nearest_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_url: str, profile: str,
                       label: str = "", batch_size: int = BATCH_SIZE, max_workers: int = MAX_WORKERS) -> np.ndarray:
-    """
-    Compute the true nearest route distance (in kilometers) for every property
-    to its nearest candidate amenity using an expanding-radius search strategy.
-    
-    Searches for the nearest candidate to each property using an expanding-radius
-    approach: the search radius starts at INITIAL_SEARCH_RADIUS_KM and doubles
-    each iteration until the true nearest is found (guaranteed by the property
-    that route distance >= straight-line distance). Route distances are computed
-    via batched, parallelised OSRM /table/ requests, and the search continues
-    across multiple iterations until all properties are resolved or MAX_SEARCH_ITERATIONS
-    is reached.
-    
+    """Nearest route distance (km) from each property to candidate amenities.
+
     Args:
-        properties: A DataFrame with 'latitude' and 'longitude' columns for
-                    each property.
-        candidates: A DataFrame with 'latitude' and 'longitude' columns for
-                    each candidate amenity location.
-        osrm_url: The base URL of the OSRM server.
-        profile: The routing profile (e.g., "driving", "foot").
-        label: A descriptive label for logging (default "").
-        batch_size: Number of properties per OSRM /table/ request (default BATCH_SIZE).
-        max_workers: Number of concurrent threads for OSRM requests (default MAX_WORKERS).
-    
+        properties: DataFrame with latitude and longitude.
+        candidates: Amenity coordinates with latitude and longitude.
+        osrm_url: OSRM server base URL.
+        profile: Routing profile.
+        label: Label used in progress prints.
+        batch_size: Properties per OSRM request.
+        max_workers: Concurrent worker threads.
+
     Returns:
-        A NumPy array of length len(properties) containing the nearest route
-        distance in kilometers for each property. NaN indicates no route could
-        be found.
+        Array of nearest route distances in km (NaN if none found).
     """
     tree = build_tree(candidates)
     candidate_coords = candidates[["latitude", "longitude"]].values
@@ -491,9 +407,11 @@ def nearest_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_ur
     active = np.ones(n, dtype=bool)
 
     def local_candidates(i: int, r: float) -> np.ndarray:
+        """Return candidate indices within radius r km of property i."""
         return tree.query_radius(np.radians([property_coords[i]]), r=r / EARTH_RADIUS_KM)[0]
 
     def process_batch(batch_idx: list[int]) -> dict[int, tuple[float, bool]]:
+        """Compute nearest route distances for a batch of property indices."""
         union = set()
         per_property = {}
         for i in batch_idx:
@@ -558,40 +476,20 @@ def nearest_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_ur
 def nearest_route_km_capped(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_url: str, profile: str,
                              skip_threshold_km: float, label: str = "", batch_size: int = BATCH_SIZE,
                              max_workers: int = MAX_WORKERS) -> tuple[np.ndarray, np.ndarray]:
-    """
-    Compute nearest route distances with a straight-line pre-filter to skip
-    expensive routing calls for distant amenities.
-    
-    For properties whose straight-line distance to the nearest candidate
-    already exceeds skip_threshold_km, the true route distance is guaranteed
-    to exceed the threshold as well (since route distance >= straight-line
-    distance). This function skips the routing call for such properties and
-    reports them as capped at skip_threshold_km. For closer properties, it
-    computes true route distances via nearest_route_km. This optimization is
-    most useful for walking-based amenities (tram, bus) where distances beyond
-    the threshold are not realistically walkable anyway.
-    
+    """Nearest route distance with a straight-line skip threshold.
+
     Args:
-        properties: A DataFrame with 'latitude' and 'longitude' columns.
-        candidates: A DataFrame with 'latitude' and 'longitude' columns for
-                    candidate amenity locations.
-        osrm_url: The base URL of the OSRM server.
-        profile: The routing profile (e.g., "foot" for walking).
-        skip_threshold_km: The distance threshold (in km) beyond which to skip
-                           routing and report a capped value.
-        label: A descriptive label for logging (default "").
-        batch_size: Number of properties per OSRM request (default BATCH_SIZE).
-        max_workers: Number of concurrent threads (default MAX_WORKERS).
-    
+        properties: DataFrame with latitude and longitude.
+        candidates: Amenity coordinates with latitude and longitude.
+        osrm_url: OSRM server base URL.
+        profile: Routing profile.
+        skip_threshold_km: Skip routing above this straight-line distance.
+        label: Label used in progress prints.
+        batch_size: Properties per OSRM request.
+        max_workers: Concurrent worker threads.
+
     Returns:
-        A tuple of two NumPy arrays:
-            - distances_km: Route distances for each property. For capped properties,
-                            this is exactly skip_threshold_km (an "at least" value).
-                            For routed properties, this is the computed true route
-                            distance (which may slightly exceed the threshold).
-            - capped_flags: Boolean array where True indicates the distance is
-                            a capped "at least" value rather than a true computed
-                            route distance.
+        (distances_km, capped_flags) arrays for each property.
     """
     tree = build_tree(candidates)
     property_coords = properties[["latitude", "longitude"]].values
@@ -620,33 +518,21 @@ def nearest_route_km_capped(properties: pd.DataFrame, candidates: pd.DataFrame, 
 def count_within_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, osrm_url: str, profile: str,
                            radius_km: float, max_candidates: int = COUNT_MAX_CANDIDATES, label: str = "",
                            batch_size: int = BATCH_SIZE, max_workers: int = MAX_WORKERS) -> np.ndarray:
-    """
-    Count the number of candidate amenities within a specified route distance
-    for each property.
-    
-    Uses a straight-line pre-filter to identify candidates within radius_km
-    (which is guaranteed to be a superset of the true "route distance <= radius_km"
-    set, since route distance >= straight-line distance). For each property,
-    sends the filtered candidates to OSRM for true route distance computation,
-    then counts how many are actually within the threshold. Results are computed
-    via batched, parallelised OSRM /table/ requests.
-    
+    """Count candidate amenities within a route-distance radius per property.
+
     Args:
-        properties: A DataFrame with 'latitude' and 'longitude' columns.
-        candidates: A DataFrame with 'latitude' and 'longitude' columns for
-                    candidate amenity locations.
-        osrm_url: The base URL of the OSRM server.
-        profile: The routing profile (e.g., "driving", "foot").
-        radius_km: The distance threshold (in km) for counting.
-        max_candidates: Maximum number of pre-filtered candidates per property
-                        to send to OSRM (default COUNT_MAX_CANDIDATES).
-        label: A descriptive label for logging (default "").
-        batch_size: Number of properties per OSRM request (default BATCH_SIZE).
-        max_workers: Number of concurrent threads (default MAX_WORKERS).
-    
+        properties: DataFrame with latitude and longitude.
+        candidates: Amenity coordinates with latitude and longitude.
+        osrm_url: OSRM server base URL.
+        profile: Routing profile.
+        radius_km: Route-distance threshold in km.
+        max_candidates: Max pre-filtered candidates per property.
+        label: Label used in progress prints.
+        batch_size: Properties per OSRM request.
+        max_workers: Concurrent worker threads.
+
     Returns:
-        A NumPy array of length len(properties) containing the count of candidates
-        within route distance radius_km for each property.
+        Array of counts per property.
     """
     tree = build_tree(candidates)
     candidate_coords = candidates[["latitude", "longitude"]].values
@@ -658,6 +544,7 @@ def count_within_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, os
     idx_arrays = [arr[:max_candidates] for arr in idx_arrays]
 
     def process_batch(batch_idx: list[int]) -> dict[int, int]:
+        """Count amenities within radius for a batch of property indices."""
         union = set()
         for i in batch_idx:
             union.update(idx_arrays[i].tolist())
@@ -710,32 +597,16 @@ def count_within_route_km(properties: pd.DataFrame, candidates: pd.DataFrame, os
 # -----------------------------------------------------------------------
 
 def dedupe_and_compute(properties: pd.DataFrame, compute_fn, *args, **kwargs):
-    """
-    Deduplicate property coordinates, compute a metric once per unique location,
-    and broadcast results back to all original rows.
-    
-    Many rental listings share a building (same latitude and longitude but
-    different units). This function rounds coordinates to COORD_ROUND_DECIMALS
-    precision, identifies unique locations, calls compute_fn on just those
-    unique locations, then broadcasts the results back to every original row.
-    This avoids redundant routing computations while maintaining a 1-to-1 mapping
-    with the input properties DataFrame.
-    
-    Works with compute_fn returning either a single array or a tuple of arrays
-    (e.g., nearest_route_km_capped returns a tuple of (distances, capped_flags)).
-    Each array in the tuple is broadcast back independently.
-    
+    """Run compute_fn once per unique coordinate and broadcast results.
+
     Args:
-        properties: A DataFrame with 'latitude' and 'longitude' columns.
-        compute_fn: A callable that takes (unique_properties_df, *args, **kwargs)
-                    and returns either a single NumPy array or a tuple of arrays.
-        *args: Positional arguments to pass to compute_fn.
-        **kwargs: Keyword arguments to pass to compute_fn.
-    
+        properties: DataFrame with latitude and longitude.
+        compute_fn: Callable on the unique-location DataFrame.
+        *args: Positional args forwarded to compute_fn.
+        **kwargs: Keyword args forwarded to compute_fn.
+
     Returns:
-        If compute_fn returns a single array, returns a NumPy array broadcast
-        to match the original properties length. If compute_fn returns a tuple,
-        returns a tuple of broadcast arrays.
+        Array or tuple of arrays aligned to the original rows.
     """
     rounded = properties[["latitude", "longitude"]].round(COORD_ROUND_DECIMALS)
     unique_df = rounded.drop_duplicates().reset_index(drop=True)
@@ -756,23 +627,7 @@ def dedupe_and_compute(properties: pd.DataFrame, compute_fn, *args, **kwargs):
 # -----------------------------------------------------------------------
 
 def main():
-    """
-    Main entry point for the amenity distance computation pipeline.
-    
-    Parses command-line arguments, loads rental property and amenity datasets,
-    computes route distances and counts for all amenity types, and outputs
-    a CSV file with results. Supports optional sampling for testing and
-    configurable batch size and worker count for performance tuning.
-    
-    Command-line arguments:
-        --sample N: Process only a random sample of N properties and write to
-                    a separate *_sample{N}.csv file.
-        --workers N: Number of concurrent threads for OSRM requests (default MAX_WORKERS).
-        --batch-size N: Properties per OSRM /table/ call (default BATCH_SIZE).
-    
-    Returns:
-        None (writes results to OUTPUT_PATH or a sample variant thereof).
-    """
+    """CLI entry point for amenity route-distance computation."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sample", type=int, default=None,
                          help="Process only a random sample of N properties (for a quick end-to-end smoke test "

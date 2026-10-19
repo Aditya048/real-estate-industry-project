@@ -1,10 +1,8 @@
 # Download and clean the population projections to 2071 by age and sex
 
-import geopandas as gpd
 from pathlib import Path
 import pandas as pd
 import requests
-import openpyxl
 
 # Set up paths
 
