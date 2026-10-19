@@ -4,7 +4,7 @@
 
 The notebooks relevant to the clients and stakeholders are:
 
-- `modellings/rfr.ipynb` (contains model training and projected rent analysis)
+- `modelling/rfr.ipynb` (contains model training and projected rent analysis)
 - `modelling/liveability/liveability_exploration.ipynb`
 - `modelling/liveability/rent_location_exploration.ipynb`
 
